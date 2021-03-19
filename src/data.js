@@ -7,7 +7,7 @@
 export const filterName = (data) => {
   const results = data.map(character => character.name);
 
-  console.log(results);
+  console.log(results)
   return results;
 }
 
