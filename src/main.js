@@ -1,21 +1,33 @@
-import { example } from './data.js';
+//import { example } from './data.js';
 
 
 import data from './data/rickandmorty/rickandmorty.js';
 
 //console.log(example, data);
-
-
-const botonSpecies = document.getElementsByClassName("speciesMenu");
-for(let i = 0; i< botonSpecies.length; i ++){
-    botonSpecies[i].addEventListener("click", () => {
-      const birthPlace = document.getElementById("birthPlace");
-      birthPlace.style.display = "block";
-    });
-    
-    console.log(birthPlace);
-    
+let dataRyM = Object.create(data);
+//dataRyM.displayspecies();
+document.getElementById("species").addEventListener("click", displayspecies);
+function displayspecies(){
+    console.log(typeof species);
+    console.log("hola");
+    console.log(species, data);
+    console.log(dataRyM);
+    console.log(typeof dataRyM);
 }
+
+// const botonSpecies = document.getElementsByClassName("speciesMenu");
+// //const botonSpecies = data;
+
+// for(let i = 0; i< botonSpecies.length; i ++){
+//     botonSpecies[i].addEventListener("click", () => {
+//       const species = document.getElementById("species");
+//       botonSpecies.innerHTML = species;
+     
+//     });
+//  }    console.log(species, data);
+//     typeof species;
+    
+// }
 
 
 
@@ -31,4 +43,4 @@ for(let i = 0; i< botonSpecies.length; i ++){
 //   var btn = document.createElement("BUTTON");
 //   btn.innerHTML = "CLICK ME";
 //   document.body.appendChild(btn);
-// }
+ 
