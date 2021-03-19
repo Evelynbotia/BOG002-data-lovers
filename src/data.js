@@ -1,8 +1,8 @@
 // estas funciones son de ejemplo
 
-export const example = () => {
-  return 'example';
-};
+// export const example = () => {
+//   return 'example';
+// };
 //las podemos usar para las barras de busqueda
 export const filterName = (data) => {
   const results = data.map(character => character.name);
@@ -11,9 +11,9 @@ export const filterName = (data) => {
   return results;
 }
 
-export const anotherExample = () => {
-  return 'OMG';
-};
+// export const anotherExample = () => {
+//   return 'OMG';
+// };
 
 //declarar una variable ocon la data del .json
 
