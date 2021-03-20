@@ -48,7 +48,7 @@ body{
     font-family:'Do Hyeon', sans-serif;; 
     background:url(IMG/fondo1.jpg);
     background-size: cover;
-    display: flex;
+   
     flex-wrap: wrap;
     
 }
