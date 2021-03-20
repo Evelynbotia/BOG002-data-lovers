@@ -4,16 +4,28 @@
 import data from './data/rickandmorty/rickandmorty.js';
 
 //console.log(example, data);
-let dataRyM = Object.create(data);
+// let dataRyM = Object.create(data);
 //dataRyM.displayspecies();
-document.getElementById("species").addEventListener("click", displayspecies);
-function displayspecies(){
-    console.log(typeof species);
-    console.log("hola");
-    console.log(species, data);
-    console.log(dataRyM);
-    console.log(typeof dataRyM);
+
+let name = document.createElement("p");
+name.textContent = character.name;
+
+card.appendChild(name);
+
+
+function characters(data){
+    for(let characters of data){
+        const 
+    }
 }
+// document.getElementById("species").addEventListener("click", displayspecies);
+// function displayspecies(){
+//     console.log(typeof species);
+//     console.log("hola");
+//     console.log(species, data);
+//     console.log(dataRyM);
+//     console.log(typeof dataRyM);
+
 
 // const botonSpecies = document.getElementsByClassName("speciesMenu");
 // //const botonSpecies = data;

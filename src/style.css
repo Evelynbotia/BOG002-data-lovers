@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+html, body{
+ margin: 0;
+ padding: 0;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    font-family: 'Do Hyeon', sans-serif;
+    letter-spacing: 0.3em;
+    line-height: 1.6;
+    background: url(IMG/fondo2.jpg);
+    background-size: cover;
+}
+
+.tittle{
+    text-align: center;
+    font-size:100px;
+    color: #4cbbbb;
+    text-shadow:2px 2px 2px  rgb(155, 240, 58);
+    margin-top: 100px;
+    font-weight: 100;
+
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    height: 430px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin:auto;
+}
+
+.container .card{
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px rgba(10, 10, 10, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+    box-shadow: 4px 4px 4px rgb(32, 182, 174);
+    font-family:'Do Hyeon', sans-serif;; 
+    background:url(IMG/fondo1.jpg);
+    background-size: cover;
+}
+
+.container .card:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(39, 215, 228, 0.2);
+
+}
+
+.container .card img{
+    width: 330px;
+    height: 220px;
+}
+
+.container .card h1{
+    font-weight: 600;
+    color: rgb(212, 63, 125);
+}
+
+.container .card p{
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
+    color: rgb(234, 240, 237);
+}
+
+.container .card a{
+    font-weight: 500;
+    text-decoration: none;
+    color: rgb(49, 36, 131);
+}
