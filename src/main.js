@@ -1,46 +1,40 @@
-//import { example } from './data.js';
+import { filterName } from './data.js';
+//si tenemos mas funciones desde aqui las debemos escribri para importarlas
 
-
+// import data from './data/lol/lol.js';
+// import data from './data/pokemon/pokemon.js';
 import data from './data/rickandmorty/rickandmorty.js';
 
-//console.log(example, data);
-let dataRyM = Object.create(data);
-//dataRyM.displayspecies();
-document.getElementById("species").addEventListener("click", displayspecies);
-function displayspecies(){
-    console.log(typeof species);
-    console.log("hola");
-    console.log(species, data);
-    console.log(dataRyM);
-    console.log(typeof dataRyM);
+console.log(data.results);
+
+const todosLosPersonajes= data.results;
+
+
+
+document.getElementById("characters").addEventListener("click",myFunction);
+
+
+function myFunction() {
+
+    for (let i=0;i<todosLosPersonajes.length;i++){
+
+        const nuevoContenedor= document.getElementById("contenerdorpersonajes");
+        let nuevoElemento = document.createElement("div");
+        let nuevaImagen = document.createElement("img");
+        let nuevoNombre = document.createElement("p")
+        nuevoElemento.className="card";
+        nuevoElemento.id=todosLosPersonajes[i].id;
+        nuevaImagen.src=todosLosPersonajes[i].image;
+        nuevoNombre.innerHTML=todosLosPersonajes[i].name;
+      
+        nuevoElemento.appendChild(nuevaImagen);
+        nuevoElemento.appendChild(nuevoNombre);
+        nuevoContenedor.appendChild(nuevoElemento);
+
+    }
+
 }
 
-// const botonSpecies = document.getElementsByClassName("speciesMenu");
-// //const botonSpecies = data;
+// var inner = select.querySelectorAll('.result .name');
+// console.log (inner);
 
-// for(let i = 0; i< botonSpecies.length; i ++){
-//     botonSpecies[i].addEventListener("click", () => {
-//       const species = document.getElementById("species");
-//       botonSpecies.innerHTML = species;
-     
-//     });
-//  }    console.log(species, data);
-//     typeof species;
-    
-// }
-
-
-
-
-// let characters = data.results;
-
-// console.log(characters);
-
-// document.getElementById("parrafo").appendChild = characters;
-// // document.getElementById("characters").addEventListener("onsubmit",myFunction);
-
-// function myFunction() {
-//   var btn = document.createElement("BUTTON");
-//   btn.innerHTML = "CLICK ME";
-//   document.body.appendChild(btn);
- 
