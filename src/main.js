@@ -1,4 +1,4 @@
-import { filterName, filtrar } from './data.js';
+import { filterName, } from './data.js';
 //si tenemos mas funciones desde aqui las debemos escribri para importarlas
 
 // import data from './data/lol/lol.js';
@@ -9,7 +9,7 @@ console.log(data.results);
 
 const todosLosPersonajes= data.results;
 
-document.getElementById("estructuraPrueba").style.display ="none";
+//document.getElementById("estructuraPrueba").style.display ="none";
 
 for (let i=0;i<todosLosPersonajes.length;i++){
 
@@ -34,8 +34,14 @@ for (let i=0;i<todosLosPersonajes.length;i++){
   
 }
 function mostrarInfo(event){
-
-  console.log(event.currentTarget.id);
+ let id =event.currentTarget.id-1;
+ let status = todosLosPersonajes[id].status;
+ let name = todosLosPersonajes[id].name;
+ 
+ console.log(name);
+ console.log(status);
+ console.log(id);
+  //console.log(event.currentTarget.id);
 }
 //  const btnformulario = document.getElementsByClassName("formularioBusqueda");
 
