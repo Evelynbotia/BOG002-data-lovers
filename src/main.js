@@ -1,4 +1,4 @@
-import { filterName } from './data.js';
+import { filterName, filtrar } from './data.js';
 //si tenemos mas funciones desde aqui las debemos escribri para importarlas
 
 // import data from './data/lol/lol.js';
@@ -27,7 +27,20 @@ for (let i=0;i<todosLosPersonajes.length;i++){
   nuevoElemento.appendChild(nuevaImagen);//sonre el nuevo elemento se va acrear  la imagen 
   nuevoElemento.appendChild(nuevoNombre);
   contenedorpersonajes.appendChild(nuevoElemento);//crear el div que contiene la imagen y que contiene el nombre copiando el formato de card
-
+   
+  nuevoElemento.id= todosLosPersonajes[i].id
+  nuevoElemento.addEventListener('click', mostrarInfo);
+  
+  
 }
+function mostrarInfo(event){
 
+  console.log(event.currentTarget.id);
+}
+//  const btnformulario = document.getElementsByClassName("formularioBusqueda");
 
+// let personajes = todosLosPersonajes;
+// function personajes (todosLosPersonajes) {
+//   return todosLosPersonajes.data === "name";
+// }
+// console.log(personajes);

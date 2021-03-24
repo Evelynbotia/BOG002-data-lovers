@@ -11,8 +11,16 @@ export const filterName = (data) => {
   return results;
 }
 
-// export const anotherExample = () => {
-//   return 'OMG';
+// const formulario =document.querySelector('#formularioBusqueda');
+// const boton = document.querySelector('#boton');
+
+// export const filtrar = () =>{
+//   console.log(formulario.value);
+
+//   boton,addEventListener('click',filtrar);
+// }
+// // export const anotherExample = () => {
+// //   return 'OMG';
 // };
 
 
