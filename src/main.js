@@ -18,7 +18,7 @@ for (let i=0;i<todosLosPersonajes.length;i++){
   let nuevaImagen = document.createElement("img");// le estoy diciendo que debe crear una imagen
   let nuevoNombre = document.createElement("h1")// le estoy diciendo que debe crear un parrafo
 
-  nuevoElemento.className="card";//el div que se creo le copie lo que este en el html con la clase card (copiando formato)
+  nuevoElemento.className="card";//s ele asigna la class card al div nuevo elemento
  
        
   nuevaImagen.src=todosLosPersonajes[i].image;
@@ -29,24 +29,27 @@ for (let i=0;i<todosLosPersonajes.length;i++){
   contenedorpersonajes.appendChild(nuevoElemento);//crear el div que contiene la imagen y que contiene el nombre copiando el formato de card
    
   nuevoElemento.id= todosLosPersonajes[i].id
-  nuevoElemento.addEventListener('click', mostrarInfo);
+
+
+    nuevoElemento.addEventListener('click', mostrarInfo);
   
   
 }
 function mostrarInfo(event){
- let id =event.currentTarget.id-1;
- let status = todosLosPersonajes[id].status;
- let name = todosLosPersonajes[id].name;
- 
- console.log(name);
- console.log(status);
- console.log(id);
-  //console.log(event.currentTarget.id);
-}
-//  const btnformulario = document.getElementsByClassName("formularioBusqueda");
+ let id =event.currentTarget.id;
+ let infoObjectById = todosLosPersonajes.find(elemento => elemento.id==id)
 
-// let personajes = todosLosPersonajes;
-// function personajes (todosLosPersonajes) {
-//   return todosLosPersonajes.data === "name";
-// }
-// console.log(personajes);
+ console.log(id);
+ typeof(id);
+  console.log(infoObjectById.name);
+ console.log(infoObjectById.status);
+ console.log(infoObjectById.species);
+ console.log(infoObjectById.type);
+ console.log(infoObjectById.gender);
+ console.log(infoObjectById.origin);// es un string
+ console.log(infoObjectById.location);// es un string
+ console.log(infoObjectById.episode);// es un string
+ console.log(infoObjectById.url);
+ console.log(infoObjectById.created);
+
+}
