@@ -30,15 +30,18 @@ div.tittle{
     line-height: 200px;
 
 }
+
 nav ul{
     float: right;
     margin-right: 40px;
 }
+
 nav li{
     display: inline-block;
     margin: 0 8px;
     line-height: 80px;
 }
+
 nav a{
     color: cadetblue;
     text-shadow:2px 2px 2px  rgb(155, 240, 58);
@@ -48,11 +51,13 @@ nav a{
     padding: 7px 10px ;
     border-radius: 3px;
 }
+
 a.active,a:hover{
     border:1px solid white;
     transition: .5s;
 
 }
+
 nav #icon{
     color: black;
     font-size: 30px;
@@ -62,16 +67,23 @@ nav #icon{
     cursor: pointer;
     display: none;
 
-} 
+}
+
 .wrapper{
     width: 200%;
-    max-width: 800px; 
-    max-width: max-content;
-
+    max-width: max-content; 
     margin: auto;
     overflow:hidden;
-    justify-content: right;
+   
 }
+
+.formulario-busqueda{
+    display: inline-block;
+    border-radius: 20px;
+    height: 40px;
+    width: 500px;
+}
+
 @media (max-width: 1048px){
     div.tittle{
      font-size: 32px ;

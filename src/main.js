@@ -45,15 +45,15 @@ function mostrarInfo(event){
  let infoObjectById = todosLosPersonajes.find(elemento => elemento.id==id)
 
  console.log(id);
- typeof(id);
-  console.log(infoObjectById.name);
+ 
+ console.log(infoObjectById.name);
  console.log(infoObjectById.status);
  console.log(infoObjectById.species);
  console.log(infoObjectById.type);
  console.log(infoObjectById.gender);
- console.log(infoObjectById.origin);// es un string
- console.log(infoObjectById.location);// es un string
- console.log(infoObjectById.episode);// es un string
+//  console.log(infoObjectById.origin);// es un string
+//  console.log(infoObjectById.location);// es un string
+//  console.log(infoObjectById.episode);// es un string
  console.log(infoObjectById.url);
  console.log(infoObjectById.created);
 
