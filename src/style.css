@@ -77,11 +77,11 @@ nav #icon{
    
 }
 
-.formulario-busqueda{
+nav .formulario-busqueda{
     display: inline-block;
     border-radius: 20px;
     height: 40px;
-    width: 500px;
+    width: 500px; 
 }
 
 @media (max-width: 1048px){
@@ -95,7 +95,7 @@ nav #icon{
     nav a{
      font-size: 17px;
     }
-   
+    
 }
 
 @media (max-width: 909px){
@@ -129,6 +129,7 @@ nav #icon{
     nav ul.show{
         left: 0;
     }
+    
    
 }
 
@@ -145,7 +146,7 @@ nav #icon{
 
 .container .card{
     width: 330px;
-    height: 430px;
+    height: 310px;
     border-radius: 8px;
     box-shadow: 0 2px rgba(10, 10, 10, 0.2);
     overflow: hidden;

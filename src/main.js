@@ -40,21 +40,22 @@ for (let i=0;i<todosLosPersonajes.length;i++){
   
   
 }
+document.getElementById("specie").style.display ="none";
 function mostrarInfo(event){
- let id =event.currentTarget.id;
- let infoObjectById = todosLosPersonajes.find(elemento => elemento.id==id)
+  let id =event.currentTarget.id;
+  let infoObjectById = todosLosPersonajes.find(elemento => elemento.id==id)
+ //  console.log(id);
+ let showSpecie = infoObjectById.species;
+ // console.log(showSpecie);
+ let showBirthPlace= infoObjectById.origin.name;
+ // console.log(showBirthPlace);
+ let contenedorpersonajes= document.getElementById("infoCharactersId");// creo las variables la ubicacion a remplazar
+ let newplaceSpecie = document.createElement("h1")
+ newplaceSpecie.innerHTML=showSpecie;
+ contenedorpersonajes.appendChild(newplaceSpecie);
 
- console.log(id);
- 
- console.log(infoObjectById.name);
- console.log(infoObjectById.status);
- console.log(infoObjectById.species);
- console.log(infoObjectById.type);
- console.log(infoObjectById.gender);
-//  console.log(infoObjectById.origin);// es un string
-//  console.log(infoObjectById.location);// es un string
-//  console.log(infoObjectById.episode);// es un string
- console.log(infoObjectById.url);
- console.log(infoObjectById.created);
+ let newBirthPlace = document.createElement("h1")
+ newBirthPlace.innerHTML=showBirthPlace;
+contenedorpersonajes.appendChild(newBirthPlace);
 
 }
