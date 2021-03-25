@@ -7,31 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="main.js" type="module"></script>
+
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-  <!-- <script>
-      // $(document).ready(function(){
-      //   $('#icon').click(function(){
-      //     $('ul').toggleClass('show')
-      //   });
-         
-      // });
-    </script> -->
+  
 </head>
 
 
 <body>
   <header>
-    <div class="tittle">
-      <h1>RICK AND MORTY</h1>
-    </div>
-  </header>
+    <label class="tittle">
+      <img src="IMG/logo_rick-removebg.png" >
+    </label>
+ 
   <nav>
     <ul>
-      <li><a class="active" href="#"> Personajes </a></li>
+      <li><a href="#"> Inicio </a></li>
+      <li><a href="#"> Personajes </a></li>
       <li><a href="#"> Episodios </a></li>
-      <li><a href="#"> Especie </a></li>
-      <li><a href="#"> Lugar de Origen</a></li>
+      <li><a href="#"> Estadisticas</a></li>
     </ul>
     <label id="icon">
       <i class="fas fa-bars"></i>
@@ -39,10 +33,11 @@
     <div class="wrapper">
       <div class="containerBusqueda" id="containerBusqueda">
         <input type="text" id="formularioBusqueda" class="formulario-busqueda">
-        <button class="btn btn-info" id="boton">Buscar</button>
+        <button class="botonBuscar" id="boton">Buscar</button>
       </div>
     </div>
   </nav>
+</header>
   <main>
     <!-- <h1 class="tittle"> RICK AND MORTY</h1> -->
     <!-- <h2 class="tittle">Wubba lubba dub dub</h2> -->
@@ -60,12 +55,12 @@
             </p> -->
       <!-- <a href="#">leer más</a> revisar!!!!!-->
       <!-- </div> -->
-      <div class = "infoCharacters" id="infoCharactersId"> 
-        <h1 id = "specie">aca va la especie</h1>
-        <p id = "birthPlace"></p>
+      <div class="infoCharacters" id="infoCharactersId">
+        <h1 id="specie">aca va la especie</h1>
+        <p id="birthPlace"></p>
       </div>
     </div>
-    
+
 
     <!-- <div id="root"></div> -->
   </main>

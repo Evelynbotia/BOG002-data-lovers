@@ -1,5 +1,7 @@
 import { filterName, } from './data.js';
 //si tenemos mas funciones desde aqui las debemos escribri para importarlas
+
+//con estas funciones se acciona el nav 
 $(document).ready(function(){
   $('#icon').click(function(){
     $('ul').toggleClass('show')
@@ -36,7 +38,7 @@ for (let i=0;i<todosLosPersonajes.length;i++){
   nuevoElemento.id= todosLosPersonajes[i].id
 
 
-    nuevoElemento.addEventListener('click', mostrarInfo);
+  nuevoElemento.addEventListener('click', mostrarInfo);
   
   
 }
@@ -56,6 +58,6 @@ function mostrarInfo(event){
 
  let newBirthPlace = document.createElement("h1")
  newBirthPlace.innerHTML=showBirthPlace;
-contenedorpersonajes.appendChild(newBirthPlace);
+ contenedorpersonajes.appendChild(newBirthPlace);
 
 }
