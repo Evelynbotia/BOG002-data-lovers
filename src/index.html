@@ -1,41 +1,73 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    
-    <link rel="stylesheet" href="style.css" >
-    
-    <script src="main.js" type="module"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" type="module"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <!-- <script>
+      // $(document).ready(function(){
+      //   $('#icon').click(function(){
+      //     $('ul').toggleClass('show')
+      //   });
+         
+      // });
+    </script> -->
+</head>
 
 
-  <body>
-    
-    <h1 class="tittle"> RICK AND MORTY</h1>
-    <h2 class="tittle">Wubba lubba dub dub</h2>
-    
-    <div class="containerBusqueda" id="containerBusqueda"> 
-      <div class="container mt-5">
-        <input type="text" id="formularioBusqueda" class="formulario-bus">
-        <button class="btn btn-info" id="boton" >Buscar</button>
-      </div>
-      <div class="container" id="personajes"> 
-        <!-- <div class="card" id = "estructuraPrueba"> -->
-            <!-- <h1>Rick</h1>
+<body>
+  <header>
+    <div class="tittle">
+      <h1>RICK AND MORTY</h1>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a class="active" href="#"> Personajes </a></li>
+      <li><a href="#"> Episodios </a></li>
+      <li><a href="#"> Especie </a></li>
+      <li><a href="#"> Lugar de Origen</a></li>
+    </ul>
+    <label id="icon">
+      <i class="fas fa-bars"></i>
+    </label>
+    <div class="wrapper">
+    <div class="containerBusqueda" id="containerBusqueda">
+      <input type="text" id="formularioBusqueda" class="formulario-busqueda">
+      <button class="btn btn-info" id="boton">Buscar</button>
+    </div>
+  </div>
+  </nav>
+  <main>
+    <!-- <h1 class="tittle"> RICK AND MORTY</h1> -->
+    <!-- <h2 class="tittle">Wubba lubba dub dub</h2> -->
+
+    <!-- <div class="containerBusqueda" id="containerBusqueda">
+      <input type="text" id="formularioBusqueda" class="formulario-bus">
+      <button class="btn btn-info" id="boton">Buscar</button>
+    </div> -->
+    <div class="container" id="personajes">
+      <!-- <div class="card" id = "estructuraPrueba"> -->
+      <!-- <h1>Rick</h1>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas et repudiandae
              sint incidunt eius ipsum enim libero doloribus, labore eum maiores sunt hic,
              alias vitae doloremque quo culpa ea natus!
             </p> -->
-           <!-- <a href="#">leer más</a> revisar!!!!!-->
-        <!-- </div> -->
-      </div>
-    </div> 
-   
-    <!-- <div id="root"></div> -->
+      <!-- <a href="#">leer más</a> revisar!!!!!-->
+      <!-- </div> -->
+    </div>
+    </div>
 
-  </body>
+    <!-- <div id="root"></div> -->
+  </main>
+  <footer>
+    
+  </footer>
+</body>
 
 </html>

@@ -1,29 +1,125 @@
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
-html, body{
+*{
  margin: 0;
  padding: 0;
+ text-decoration: none;
+ list-style: none;
 }
+
 
 body{
     width: 100%;
-    height: 100%;
+    height:calc (100vh - 80px);
     font-family: 'Do Hyeon', sans-serif;
     letter-spacing: 0.3em;
     line-height: 1.6;
-    background: url(IMG/fondo2.jpg);
+    background: url(IMG/fondo2.jpg); 
     background-size: cover;
 }
 
-.tittle{
+div.tittle{
+
     text-align: center;
-    font-size:100px;
+    font-size:80px; 
     color: #4cbbbb;
     text-shadow:2px 2px 2px  rgb(155, 240, 58);
     margin-top: 100px;
     font-weight: 100;
+    padding: 0 100px;
+    line-height: 200px;
 
 }
+nav ul{
+    float: right;
+    margin-right: 40px;
+}
+nav li{
+    display: inline-block;
+    margin: 0 8px;
+    line-height: 80px;
+}
+nav a{
+    color: cadetblue;
+    text-shadow:2px 2px 2px  rgb(155, 240, 58);
+    font-size: 18px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    padding: 7px 10px ;
+    border-radius: 3px;
+}
+a.active,a:hover{
+    border:1px solid white;
+    transition: .5s;
+
+}
+nav #icon{
+    color: black;
+    font-size: 30px;
+    line-height: 80px;
+    float: right;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+
+} 
+.wrapper{
+    width: 200%;
+    max-width: 800px; 
+    max-width: max-content;
+
+    margin: auto;
+    overflow:hidden;
+    justify-content: right;
+}
+@media (max-width: 1048px){
+    div.tittle{
+     font-size: 32px ;
+     padding-left:60px ;
+    }
+    nav ul{
+     margin-right: 20px;
+    }
+    nav a{
+     font-size: 17px;
+    }
+   
+}
+
+@media (max-width: 909px){
+   nav #icon{
+     display:block ;
+     position:static;
+    }
+    nav ul{
+     position: fixed; 
+     width: 100% ;
+     height: 100vh;
+     background: #2f3640;
+     top: 80 px;
+     left: -100%;
+     text-align: center;
+     transition: all .5s;
+    }
+    nav li{
+     display: block;
+     margin: 50px 0;
+     line-height: 30px;
+    }
+    nav a{
+     font-size: 20px;
+    }
+    a.active,a:hover{
+      border: none;
+      color: #3498db;
+
+    } 
+    nav ul.show{
+        left: 0;
+    }
+   
+}
+
 
 .container{
     width: 100%;
@@ -81,3 +177,11 @@ body{
     text-decoration: none;
     color: rgb(49, 36, 131);
 }
+/* label .containerBusqueda{
+    border-radius: black;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+
+} */

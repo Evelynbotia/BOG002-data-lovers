@@ -1,6 +1,11 @@
 import { filterName, } from './data.js';
 //si tenemos mas funciones desde aqui las debemos escribri para importarlas
-
+$(document).ready(function(){
+  $('#icon').click(function(){
+    $('ul').toggleClass('show')
+  });
+   
+});
 // import data from './data/lol/lol.js';
 // import data from './data/pokemon/pokemon.js';
 import data from './data/rickandmorty/rickandmorty.js';
