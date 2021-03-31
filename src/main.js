@@ -46,27 +46,46 @@ for (let i=0;i<todosLosPersonajes.length;i++){
   nuevoDiv.id= todosLosPersonajes[i].id
 
 
-  // nuevoElemento.addEventListener('click', mostrarInfo);
   
-  
+     //estamos creando el evento click para mostrar la funcion.
+//   let clickMostrarEpisodios = nuevoDiv.addEventListener('click', mostrarEpisodios);
+}
+ 
+// // esta funcion nos va permitir mostrar los episodios del personaje al que damos click
+// function mostrarEpisodios(event){
+ 
+//  let id =event.currentTarget.id;
+//  let infoObjectById = todosLosPersonajes.find(elemento => elemento.id==id)
+// //  console.log(infoObjectById);
+
+//  let showEpisodios = infoObjectById.episode;
+//   console.log(showEpisodios);
+
+//  }
+ let busquedaInput= document.getElementById("filtrarBusqueda");
+ busquedaInput.addEventListener("keyup", filtrarBusqueda);
+ function filtrarBusqueda(){
+   let parametroBusqueda = busquedaInput.value;
+   
+  let resultados = filterItems(todosLosPersonajes,parametroBusqueda); // ['apple', 'grapes']
+  console.log(resultados);
+  }
+
+
+/**
+ * Filtra la matríz en función de un criterio de búsqueda (query)
+ */
+function filterItems(personajes,query) {
+  function condicionDeFiltrado(personajeObjeto) {
+    const nombrepersonaje = personajeObjeto.name.toLowerCase ();
+    query =query.toLowerCase ();
+    let indiceCalculado =  nombrepersonaje.indexOf(query);
+   
+    return indiceCalculado > -1;
+  }
+  return personajes.filter(condicionDeFiltrado);
+
 }
 
-// document.getElementById("specie").style.display ="none";
-function mostrarInfo(event){
-  let id =event.currentTarget.id;
-  let infoObjectById = todosLosPersonajes.find(elemento => elemento.id==id)
- //  console.log(id);
- let showSpecie = infoObjectById.species;
- // console.log(showSpecie);
- let showBirthPlace= infoObjectById.origin.name;
- // console.log(showBirthPlace);
- let contenedorpersonajes= document.getElementById("infoCharactersId");// creo las variables la ubicacion a remplazar
- let newplaceSpecie = document.createElement("h1")
- newplaceSpecie.innerHTML=showSpecie;
- contenedorpersonajes.appendChild(newplaceSpecie);
 
- let newBirthPlace = document.createElement("h1")
- newBirthPlace.innerHTML=showBirthPlace;
- contenedorpersonajes.appendChild(newBirthPlace);
-
-}
+ // ['banana', 'mango', 'orange']

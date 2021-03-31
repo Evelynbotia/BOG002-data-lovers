@@ -10,16 +10,16 @@
     
 }
 body {
-    /* display:inline-flex; */
-    /* justify-content: center;
-    align-items: center; */
-    /* width: 100%;
-    height:calc (100vh - 80px); */
-    font-family: 'Do Hyeon', sans-serif;
-    /* letter-spacing: 0.3em;
-    line-height: 1.6; */
+    /* display:inline-flex; 
+    justify-content: center; */
+    align-items: center; 
+     width: 100%;
+    height:calc (100vh - 80px); 
+    font-family: 'Do Hyeon', sans-serif; 
+     letter-spacing: 0.1em;
+    line-height: 1.0; 
     background: url(IMG/fondo2.jpg); 
-    /* background-size: cover; */
+   
     
 }
 .container{
@@ -33,6 +33,23 @@ body {
     
     
 }
+.container .card img{
+    width: 330px;
+    height: 220px;
+}  
+
+.container .card h1{
+    font-weight: 300;
+    color: rgb(212, 63, 125);
+    font-size: 25px;
+} 
+ .container .card h2{
+    padding: 0 1rem;
+    font-size: 20px;
+    font-weight: 300;
+    color: rgb(51, 145, 98);
+}  
+
 .container .card{
     position:relative;
     max-width: 300px;
@@ -88,7 +105,7 @@ body {
     margin-top: -140px;
     padding: 10px 15px;
     text-align: center;
-    color: #111;
+    color: rgb(32, 161, 75);
     visibility: hidden;
     opacity: 0;
     transition: 0.3s ease-in-out;
@@ -233,7 +250,7 @@ nav .botonBuscar{
      position: fixed; 
      width: 100% ;
      height: 100vh;
-     background: #b0e945;
+     background: #8ec429;
      top: 80 px;
      left: -100%;
      text-align: center;
@@ -291,22 +308,7 @@ nav .botonBuscar{
     transform: translateY(-15px);
     box-shadow: 0 12px 16px rgba(166, 225, 230, 0.2); */
  
- .container .card img{
-    width: 330px;
-    height: 220px;
-}  
-
-.container .card h1{
-    font-weight: 300;
-    color: rgb(212, 63, 125);
-} 
- .container .card h2{
-    padding: 0 1rem;
-    font-size: 20px;
-    font-weight: 300;
-    color: rgb(51, 145, 98);
-}  
-
+ 
 /* .container .card a{
     font-weight: 500;
     text-decoration: none;
