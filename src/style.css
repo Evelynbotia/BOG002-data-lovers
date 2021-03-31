@@ -34,17 +34,35 @@ body {
     
 }
 .container .card{
-    position: relative;
+    position:relative;
     max-width: 300px;
     height: 215px;
-    background: white;
+    background: url(IMG/fondo\ content.jpg);
     margin: 30px 10px;
     padding: 20px 15px ;
     display: flex;
     flex-direction: column;
     box-shadow: 0 5px 20px rgba(78, 229, 235, 0.5);
     transition: 0.3s ease-in-out;
-
+    text-align: center; 
+    
+   
+    width: 280px;
+    /* height: 280px; */
+    /* border-radius: 8px;
+    box-shadow: 0 2px rgba(10, 10, 10, 0.2);
+    overflow: hidden; */
+    /* margin: 60px;
+    font-size: 10px;
+    text-align: center; 
+    transition: all 0.25s; */
+    /* box-shadow: 4px 4px 4px rgb(32, 182, 174); 
+    font-family:'Do Hyeon', sans-serif;
+    background: rgb(255, 255, 255); */
+    /* background-size: cover; */
+   
+    /* flex-wrap: wrap;  */
+    
     
 }
 .container .card:hover{
@@ -58,7 +76,7 @@ body {
     left: 20px;
     z-index: 1;
     box-shadow: 0 5px 20px rgba(66, 241, 232, 0.2);
-    
+   
 }
 .container .card .imgBx img{
     max-width: 100%;
@@ -84,7 +102,7 @@ body {
 }
 
  
-
+Aquí inicia la tarjeta anterior :D
  
 /* *{
  margin: 0;
@@ -239,9 +257,8 @@ nav .botonBuscar{
     }
     
 } 
-
-
-/* .container{
+/* 
+.container{
     width: 100%;
     max-width: 1200px;
     height: 430px;
@@ -249,8 +266,8 @@ nav .botonBuscar{
     flex-wrap: wrap;
     justify-content: center;
     margin:auto;
-} */
-/* 
+}  
+ 
 .container .card{
     width: 280px;
     height: 280px;
@@ -268,32 +285,30 @@ nav .botonBuscar{
    
     flex-wrap: wrap;
     
-} */
-/* 
+}  
+ 
 .container .card:hover{
     transform: translateY(-15px);
-    box-shadow: 0 12px 16px rgba(166, 225, 230, 0.2);
-
-}  */
-/* .container .card img{
+    box-shadow: 0 12px 16px rgba(166, 225, 230, 0.2); */
+ 
+ .container .card img{
     width: 330px;
     height: 220px;
-}  */
+}  
 
 .container .card h1{
-    font-weight: 600;
-    color: rgb(212, 63, 125);
-}
-
-/* .container .card p{
-    padding: 0 1rem;
-    font-size: 16px;
     font-weight: 300;
-    color: rgb(234, 240, 237);
-} */
+    color: rgb(212, 63, 125);
+} 
+ .container .card h2{
+    padding: 0 1rem;
+    font-size: 20px;
+    font-weight: 300;
+    color: rgb(51, 145, 98);
+}  
 
 /* .container .card a{
     font-weight: 500;
     text-decoration: none;
     color: rgb(49, 36, 131);
-}   */
+}     */
