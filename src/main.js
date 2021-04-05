@@ -17,10 +17,17 @@ console.log(data.results);
 const todosLosPersonajes= data.results;
 
 document.getElementById("fichaPersonajes").style.display ="none";
+//prueba para crear el for en una funcion
 
-for (let i=0;i<todosLosPersonajes.length;i++){
 
+
+
+function showCards (resultadoPersonajes){
   let contenedorpersonajes= document.getElementById("personajes");// creo las variables la ubicacion a remplazar
+  contenedorpersonajes.innerHTML="";
+for (let i=0;i<resultadoPersonajes.length;i++){
+
+  
   let nuevoDiv = document.createElement("div");// le estoy diciendo que debe crear un nuevo div
   let nuevaImagen = document.createElement("img");// le estoy diciendo que debe crear una imagen
   let nuevoDivImg = document.createElement ("div");
@@ -30,11 +37,13 @@ for (let i=0;i<todosLosPersonajes.length;i++){
   nuevoDiv.className="card";//s ele asigna la class card al div nuevo elemento
   nuevoDivImg.className="imgBx";
   nuevoDivContent.className ="content";
-       
-  nuevaImagen.src=todosLosPersonajes[i].image;
-  nuevoNombre.innerHTML= todosLosPersonajes[i].name;
-  nuevoParrafo.innerHTML = "Species: " +  todosLosPersonajes[i].species + " <br>Gender: " + todosLosPersonajes[i].gender + "<br>Status: " + todosLosPersonajes[i].status + "<br> Origin: " + todosLosPersonajes[i].origin.name + "<br> Type: " + todosLosPersonajes[i].type;
   
+ 
+  nuevaImagen.src=resultadoPersonajes[i].image;
+  nuevoNombre.innerHTML= resultadoPersonajes[i].name;
+  nuevoParrafo.innerHTML = "Species: " +  resultadoPersonajes[i].species + " <br>Gender: " + resultadoPersonajes[i].gender + "<br>Status: " + resultadoPersonajes[i].status + "<br> Origin: " + resultadoPersonajes[i].origin.name + "<br> Type: " + resultadoPersonajes[i].type;
+  
+
 
   nuevoDivImg.appendChild(nuevaImagen);//sonre el nuevo elemento se va acrear  la imagen 
   nuevoDivContent.appendChild(nuevoNombre);
@@ -46,7 +55,11 @@ for (let i=0;i<todosLosPersonajes.length;i++){
   nuevoDiv.id= todosLosPersonajes[i].id
 
 
-  
+}
+
+
+
+// showCards(todosLosPersonajes);
      //estamos creando el evento click para mostrar la funcion.
 //   let clickMostrarEpisodios = nuevoDiv.addEventListener('click', mostrarEpisodios);
 }
@@ -64,11 +77,13 @@ for (let i=0;i<todosLosPersonajes.length;i++){
 //  }
  let busquedaInput= document.getElementById("filtrarBusqueda");
  busquedaInput.addEventListener("keyup", filtrarBusqueda);
+
  function filtrarBusqueda(){
    let parametroBusqueda = busquedaInput.value;
-   
-  let resultados = filterItems(todosLosPersonajes,parametroBusqueda); // ['apple', 'grapes']
+  
+  let resultados = filterItems(todosLosPersonajes,parametroBusqueda); 
   console.log(resultados);
+ showCards(resultados);
   }
 
 
@@ -88,4 +103,3 @@ function filterItems(personajes,query) {
 }
 
 
- // ['banana', 'mango', 'orange']
