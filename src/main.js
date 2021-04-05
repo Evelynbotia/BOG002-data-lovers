@@ -16,11 +16,11 @@ console.log(data.results);
 
 const todosLosPersonajes= data.results;
 
-document.getElementById("fichaPersonajes").style.display ="none";
+// document.getElementById("fichaPersonajes").style.display ="none";
 //prueba para crear el for en una funcion
 
 
-
+showCards (todosLosPersonajes);
 
 function showCards (resultadoPersonajes){
   let contenedorpersonajes= document.getElementById("personajes");// creo las variables la ubicacion a remplazar
@@ -100,6 +100,13 @@ function filterItems(personajes,query) {
   }
   return personajes.filter(condicionDeFiltrado);
 
+}
+
+document.getElementById("seccionDimensiones").addEventListener("click",showDimensions);
+function showDimensions () {
+
+// document.getElementById("campoprueba").innerHTML="esta pasando algo"
+document.getElementById("personajes").style.display ="none";
 }
 
 

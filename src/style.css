@@ -206,7 +206,8 @@ nav #icon{
     
 
 }
-nav .botonBuscar{
+/* Borrarlo si decidimos elimar el boton */
+/* nav .botonBuscar{
    display: inline-block;
    background-color:#8ed6d8;
    color:rgb(211, 58, 178);
@@ -219,7 +220,7 @@ nav .botonBuscar{
    height: 40px;
    transform: translateX(-5%);
    
-}
+} */
 
 @media (max-width: 1048px){
     label .tittle{
