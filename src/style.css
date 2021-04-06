@@ -315,3 +315,21 @@ nav #icon{
     text-decoration: none;
     color: rgb(49, 36, 131);
 }     */
+
+
+
+/* prueba jess modal */
+#modalPopup { display: none;
+}
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+}
