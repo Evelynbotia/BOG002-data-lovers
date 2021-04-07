@@ -87,7 +87,7 @@ function ejecutarBusqueda() {
   let parametroBusqueda = busquedaInput.value;
 
   let resultados = filterItems(todosLosPersonajes, parametroBusqueda);
-  // console.log(resultados);
+  
   showCards(resultados);
 }
 
@@ -96,44 +96,38 @@ function ejecutarBusqueda() {
 document.getElementById("seccionDimensiones").addEventListener("click", showDimensions);
 
 
-
 function showDimensions() {
   document.getElementById("personajes").style.display = "none";
-  fetch("https://rickandmortyapi.com/api/location")
-  .then(response => response.json())
-  .then(data => {
-    const listDimensions = getDimensions(data.results);
-    // eslint-disable-next-line no-undef
-    const dimensionsSet = new Set(listDimensions);
-    const dimensions = [...dimensionsSet];
-    console.log(dimensions);
+ 
+  let planetas = [];  
+  for (let i =0; i < todosLosPersonajes.length; i++) {
+    planetas.push(todosLosPersonajes[i].location.name);
+      
+  }
+  console.log(planetas);
+ 
 
-    for (let dimensions of listDimensions) {
-    document.getElementById("imprimirLocations").innerHTML = (dimensions);
+ let planetasDiferentes=[];
+ planetas.forEach(
+ (item) => {
+    if (planetasDiferentes.includes(item)){
+      //no hacer nada
     }
-  
+    else{
+      planetasDiferentes.push(item)
+    }
+  })
+ console.log(planetasDiferentes);
 
-    // // Crear lista de  dimensiones
-    // cardDimensions(dimensions);
+ for (let i =0; 1 < planetasDiferentes.length; i++){
+   let location = document.getElementById("imprimirLocations");
+   let newLocation = document.createElement("h1");
+   newLocation.textContent = planetasDiferentes[i];
+   location.appendChild(newLocation);
 
-    // // Crear lista de mundos con su lista de personajes
-    // cardDesplegable(data.results, dimensions);
-  });
-//   document.getElementById("personajes").style.display = "none";
-  
-  // let contenedordimensiones = document.getElementById("locations");
-
-  // for (let i = 0; i < todosLosPersonajes.length; i++) {
-  //   const arregloDeDimensiones = todosLosPersonajes.location.name[i];
-  //   console.log(arregloDeDimensiones);
-  //   const listadodimensiones = new set(arregloDeDimensiones);
-  //   // let nuevoDiv = document.createElement("div");
-  //   // let nuevoTitulo = document.createElement("h2");
-  //   // nuevoTitulo.innerHTML = todosLosPersonajes[i].location.name;
-  //   // nuevoDiv.appendChild(nuevoTitulo);
-  //   // contenedordimensiones.appendChild(nuevoDiv);
-    
-  // }
+   console.log(planetasDiferentes.length);
+   console.log(location);
+   console.log(newLocation);
+   
+ }
 }
-
-

@@ -15,7 +15,7 @@
 //   return results;
 // }
 
-export const getDimensions = (data) => data.map(location => location.dimension)
+export const getDimensions = (data) => data.map(location => location.name);
 
 
 
