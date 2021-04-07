@@ -14,6 +14,11 @@
 //   // console.log(results)
 //   return results;
 // }
+
+export const getDimensions = (data) => data.map(location => location.dimension)
+
+
+
 export const filterItems = function(personajes, query){//funcion de expresion 
 
     function condicionDeFiltrado(personajeObjeto) {

@@ -1,4 +1,4 @@
-import { filterItems, } from './data.js';
+import { filterItems,getDimensions } from './data.js';
 //si tenemos mas funciones desde aqui las debemos escribri para importarlas
 
 //con estas funciones se acciona el nav 
@@ -48,14 +48,36 @@ function showCards(resultadoPersonajes) {
     nuevoDiv.appendChild(nuevoDivContent);
     contenedorpersonajes.appendChild(nuevoDiv);//crear el div que contiene la imagen y que contiene el nombre copiando el formato de card
 
-   
+    // esto es para mostrar los episodios en un popup
+    nuevoDiv.id = todosLosPersonajes[i].id
+
+    nuevoDiv.addEventListener('click', showEpisodes);
   }
 
 
-
-
 }
+//esto es para mostrar los episodios en un popup
 
+
+
+function showEpisodes(event) {
+
+  document.getElementById("modalPopup").style.display = "block";
+  let id = event.currentTarget.id;
+  console.log(id);
+  let infoObjectById = todosLosPersonajes.find(elemento => elemento.id == id)
+  console.log(infoObjectById);
+  let showBirthPlace = infoObjectById.origin.name;
+  const showEpisode = infoObjectById.episode; //este
+  console.log(showEpisode);
+  let contenedorpersonajes = document.getElementById("modalPopup");// creo las variables la ubicacion a remplazar
+  let newEpisode = document.createElement("h1");//este
+  let newBirthPlace = document.createElement("h1");
+  newEpisode.innerHTML = newEpisode;//este
+  contenedorpersonajes.appendChild(newEpisode);//este
+  newBirthPlace.innerHTML = showBirthPlace;
+  contenedorpersonajes.appendChild(newBirthPlace);
+}
 
 
 let busquedaInput = document.getElementById("filtrarBusqueda");
@@ -70,32 +92,48 @@ function ejecutarBusqueda() {
 }
 
 
-// function filterItems(personajes, query) {
-//   function condicionDeFiltrado(personajeObjeto) {
-//     const nombrepersonaje = personajeObjeto.name.toLowerCase();
-//     const coincidencia = query.toLowerCase(); // query me permite buscar en cualquier parte del objeto la coincidencia 
-//     let indiceCalculado = nombrepersonaje.indexOf(coincidencia);// cuenta la ocurrencia de coincidencia sobre nombre personajes como es suseptible a mayusculas por eso hicimos el tolower case 
-//     console.log(indiceCalculado);
-
-//     return indiceCalculado > -1;// lo hacemos mayor a -1 para que nos muestre coincidencias, index of al no encontrar muestra -1
-//   }
-//   return personajes.filter(condicionDeFiltrado);
-// }
-
-
-
-
 
 document.getElementById("seccionDimensiones").addEventListener("click", showDimensions);
-function showDimensions() {
 
-  // document.getElementById("campoprueba").innerHTML="esta pasando algo"
+
+
+function showDimensions() {
   document.getElementById("personajes").style.display = "none";
-  // for (let i = 0; i < resultadoPersonajes.length; i++)
-  // let nuevoDiv = document.createElement("div");
-  // let nuevoTitulo = document.createElement("h2");
-  // nuevoTitulo.innerHTML = resultadoPersonajes[i].species;
-  // nuevoDiv.appendChild(nuevoTitulo);
+  fetch("https://rickandmortyapi.com/api/location")
+  .then(response => response.json())
+  .then(data => {
+    const listDimensions = getDimensions(data.results);
+    // eslint-disable-next-line no-undef
+    const dimensionsSet = new Set(listDimensions);
+    const dimensions = [...dimensionsSet];
+    console.log(dimensions);
+
+    for (let dimensions of listDimensions) {
+    document.getElementById("imprimirLocations").innerHTML = (dimensions);
+    }
+  
+
+    // // Crear lista de  dimensiones
+    // cardDimensions(dimensions);
+
+    // // Crear lista de mundos con su lista de personajes
+    // cardDesplegable(data.results, dimensions);
+  });
+//   document.getElementById("personajes").style.display = "none";
+  
+  // let contenedordimensiones = document.getElementById("locations");
+
+  // for (let i = 0; i < todosLosPersonajes.length; i++) {
+  //   const arregloDeDimensiones = todosLosPersonajes.location.name[i];
+  //   console.log(arregloDeDimensiones);
+  //   const listadodimensiones = new set(arregloDeDimensiones);
+  //   // let nuevoDiv = document.createElement("div");
+  //   // let nuevoTitulo = document.createElement("h2");
+  //   // nuevoTitulo.innerHTML = todosLosPersonajes[i].location.name;
+  //   // nuevoDiv.appendChild(nuevoTitulo);
+  //   // contenedordimensiones.appendChild(nuevoDiv);
+    
+  // }
 }
 
 
