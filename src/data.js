@@ -15,7 +15,7 @@
 //   return results;
 // }
 
-export const getDimensions = (data) => data.map(location => location.name);
+// export const getDimensions = (data) => data.map(location => location.name);
 
 
 
@@ -33,18 +33,6 @@ export const filterItems = function(personajes, query){//funcion de expresion
   }
 
 
-
-// const formulario =document.querySelector('#formularioBusqueda');
-// const boton = document.querySelector('#boton');
-
-// export const filtrar = () =>{
-//   console.log(formulario.value);
-
-//   boton,addEventListener('click',filtrar);
-// }
-// // export const anotherExample = () => {
-// //   return 'OMG';
-// };
 
 
 

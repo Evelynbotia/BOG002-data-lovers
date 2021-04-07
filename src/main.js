@@ -1,4 +1,5 @@
-import { filterItems,getDimensions } from './data.js';
+// import { loadOptions } from '@babel/core';
+import { filterItems, } from './data.js';
 //si tenemos mas funciones desde aqui las debemos escribri para importarlas
 
 //con estas funciones se acciona el nav 
@@ -67,14 +68,10 @@ function showEpisodes(event) {
   console.log(id);
   let infoObjectById = todosLosPersonajes.find(elemento => elemento.id == id)
   console.log(infoObjectById);
-  let showBirthPlace = infoObjectById.origin.name;
-  const showEpisode = infoObjectById.episode; //este
-  console.log(showEpisode);
   let contenedorpersonajes = document.getElementById("modalPopup");// creo las variables la ubicacion a remplazar
-  let newEpisode = document.createElement("h1");//este
+
+  let showBirthPlace = infoObjectById.origin.name;
   let newBirthPlace = document.createElement("h1");
-  newEpisode.innerHTML = newEpisode;//este
-  contenedorpersonajes.appendChild(newEpisode);//este
   newBirthPlace.innerHTML = showBirthPlace;
   contenedorpersonajes.appendChild(newBirthPlace);
 }
@@ -87,47 +84,50 @@ function ejecutarBusqueda() {
   let parametroBusqueda = busquedaInput.value;
 
   let resultados = filterItems(todosLosPersonajes, parametroBusqueda);
-  
+
   showCards(resultados);
 }
 
 
 
-document.getElementById("seccionDimensiones").addEventListener("click", showDimensions);
+document.getElementById("seccionDimensiones").addEventListener("click", listLocations);
 
 
-function showDimensions() {
+function listLocations() {
   document.getElementById("personajes").style.display = "none";
- 
-  let planetas = [];  
-  for (let i =0; i < todosLosPersonajes.length; i++) {
+
+
+  let planetas = [];
+  // creamos un array con todos los planetas
+  for (let i = 0; i < todosLosPersonajes.length; i++) {
     planetas.push(todosLosPersonajes[i].location.name);
-      
   }
-  console.log(planetas);
- 
+  // console.log(planetas);
+  // let planetasUnicos =[...new Set(planetas)];
+  // console.log( planetasUnicos);
+    
+  let planetasDiferentes = [];
+  planetas.forEach(
+    (item) => {
+      if (planetasDiferentes.includes(item)) { //no hacer nada
+      } else { planetasDiferentes.push(item) }
+    })
+  console.log(planetasDiferentes);
 
- let planetasDiferentes=[];
- planetas.forEach(
- (item) => {
-    if (planetasDiferentes.includes(item)){
-      //no hacer nada
-    }
-    else{
-      planetasDiferentes.push(item)
-    }
+  let mostrarPlanetas = planetasDiferentes.map(function(locaciones){
+    return '<h1>'+locaciones+'</h1>'
   })
- console.log(planetasDiferentes);
+  document.getElementById("imprimirLocations").innerHTML = mostrarPlanetas;
 
- for (let i =0; 1 < planetasDiferentes.length; i++){
-   let location = document.getElementById("imprimirLocations");
-   let newLocation = document.createElement("h1");
-   newLocation.textContent = planetasDiferentes[i];
-   location.appendChild(newLocation);
-
-   console.log(planetasDiferentes.length);
-   console.log(location);
-   console.log(newLocation);
-   
- }
 }
+
+
+
+
+
+
+
+
+
+
+
