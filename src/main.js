@@ -115,19 +115,23 @@ function listLocations() {
   console.log(planetasDiferentes);
 
   let mostrarPlanetas = planetasDiferentes.map(function(locaciones){
-    return '<h1>'+locaciones+'</h1>'
+    return '<button>'+locaciones+'</button>'
   })
-  document.getElementById("imprimirLocations").innerHTML = mostrarPlanetas;
-
+  document.getElementById("locations").innerHTML = mostrarPlanetas;
+  
+  
 }
+ 
 
 
-
-
-
-
-
-
-
-
-
+const mostrarPlanetas = document.getElementsByClassName("classLocations");
+for (let i = 0; i < mostrarPlanetas.length; i++) {
+ 
+  mostrarPlanetas[i].addEventListener("click", () => {
+    // Buscamos el div que contiene la vista de los chacarcters
+    // console.log("dame click");
+    const showDimensiones = document.getElementById("personajes");
+    showDimensiones.style.display = "block";
+  });
+  // console.log(mostrarPlanetas[i]);
+}
