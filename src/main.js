@@ -95,7 +95,7 @@ document.getElementById("seccionDimensiones").addEventListener("click", listLoca
 
 function listLocations() {
   document.getElementById("personajes").style.display = "none";
-
+  document.getElementById("filtrarBusqueda").style.display ="none";
 
   let planetas = [];
   // creamos un array con todos los planetas
@@ -129,9 +129,12 @@ for (let i = 0; i < mostrarPlanetas.length; i++) {
  
   mostrarPlanetas[i].addEventListener("click", () => {
     // Buscamos el div que contiene la vista de los chacarcters
-    // console.log("dame click");
+    mostrarPlanetas.id =  mostrarPlanetas[i].location;
+    console.log(mostrarPlanetas.id);
+    console.log(mostrarPlanetas[i]);
     const showDimensiones = document.getElementById("personajes");
     showDimensiones.style.display = "block";
+  
   });
   // console.log(mostrarPlanetas[i]);
 }
