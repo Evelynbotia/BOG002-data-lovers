@@ -122,6 +122,32 @@ function listLocations() {
   
 }
  
+document.getElementById("seccionEstatus").addEventListener("click", listStatus);
+function listStatus() {
+  document.getElementById("personajes").style.display = "none";
+  let status = [];
+  // creamos un array con todos los planetas
+  for (let i = 0; i < todosLosPersonajes.length; i++) {
+    status.push(todosLosPersonajes[i].status);
+  }
+  let estatusDiferentes = [];
+  status.forEach(
+    (item) => {
+      if (estatusDiferentes.includes(item)) { //no hacer nada
+      } else { estatusDiferentes.push(item) }
+    })
+  console.log(estatusDiferentes);
+  let mostrarstatus = estatusDiferentes.map(function (status) {
+    return '<button>' + status + '</button>'
+  })
+  document.getElementById("locations").innerHTML = mostrarstatus;
+}
+document.getElementById("seccionPersonajes").addEventListener("click", listCharacters);
+function listCharacters() {
+  let placecharacters = document.getElementById("personajes");
+  placecharacters.style.display = "block";
+  // document.getElementById("personajes").style.display = "block";
+}
 
 
 const mostrarPlanetas = document.getElementsByClassName("classLocations");
@@ -130,8 +156,8 @@ for (let i = 0; i < mostrarPlanetas.length; i++) {
   mostrarPlanetas[i].addEventListener("click", () => {
     // Buscamos el div que contiene la vista de los chacarcters
     mostrarPlanetas.id =  mostrarPlanetas[i].location;
-    console.log(mostrarPlanetas.id);
-    console.log(mostrarPlanetas[i]);
+    console.log("dame click");
+    // console.log(mostrarPlanetas[i]);
     const showDimensiones = document.getElementById("personajes");
     showDimensiones.style.display = "block";
   
