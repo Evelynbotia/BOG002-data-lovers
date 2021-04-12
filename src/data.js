@@ -22,7 +22,7 @@
 export const filterItems = function(personajes, query){//funcion de expresion 
 
     function condicionDeFiltrado(personajeObjeto) {
-      const nombrepersonaje = personajeObjeto.name.toLowerCase();
+      const nombrepersonaje = personajeObjeto.location.name.toLowerCase();
       const coincidencia = query.toLowerCase(); // query me permite buscar en cualquier parte del objeto la coincidencia 
       const indiceCalculado = nombrepersonaje.indexOf(coincidencia);// cuenta la ocurrencia de coincidencia sobre nombre personajes como es suseptible a mayusculas por eso hicimos el tolower case 
       console.log(indiceCalculado);
