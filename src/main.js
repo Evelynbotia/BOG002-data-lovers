@@ -1,5 +1,5 @@
 // import { loadOptions } from '@babel/core';
-import { filterItems, } from './data.js';
+import { filterItems,filterItemsBybutton } from './data.js';
 //si tenemos mas funciones desde aqui las debemos escribri para importarlas
 
 //con estas funciones se acciona el nav 
@@ -15,14 +15,14 @@ import data from './data/rickandmorty/rickandmorty.js';
 // console.log(data.results);
 
 const todosLosPersonajes = data.results;
-console.log(typeof todosLosPersonajes);
+console.log("todosLosPersonajes");
 console.log(todosLosPersonajes);
-
+console.log(typeof todosLosPersonajes);
 
 showCards(todosLosPersonajes);
 
 function showCards(resultadoPersonajes) {
-   const contenedorpersonajes = document.getElementById("personajes");// creo las variables la ubicacion a remplazar
+  const contenedorpersonajes = document.getElementById("personajes");// creo las variables la ubicacion a remplazar
   contenedorpersonajes.innerHTML = "";
   for (let i = 0; i < resultadoPersonajes.length; i++) {
     const nuevoDiv = document.createElement("div");// le estoy diciendo que debe crear un nuevo div
@@ -39,7 +39,7 @@ function showCards(resultadoPersonajes) {
     nuevaImagen.src = resultadoPersonajes[i].image;
     nuevoNombre.innerHTML = resultadoPersonajes[i].name;
     nuevoParrafo.innerHTML = "Species: " + resultadoPersonajes[i].species + " <br>Gender: " + resultadoPersonajes[i].gender + "<br>Status: " + resultadoPersonajes[i].status + "<br> Origin: " + resultadoPersonajes[i].origin.name + "<br> Type: " + resultadoPersonajes[i].type;
-   //realizamos la estructura con el appendchild
+    //realizamos la estructura con el appendchild
     nuevoDivImg.appendChild(nuevaImagen);//sonre el nuevo elemento se va acrear  la imagen 
     nuevoDivContent.appendChild(nuevoNombre);
     nuevoDivContent.appendChild(nuevoParrafo);
@@ -56,7 +56,7 @@ function showEpisodes(event) {
 
   document.getElementById("modalPopup").style.display = "block";
   let id = event.currentTarget.id;
- console.log(id); // me muestra el id
+  console.log(id); // me muestra el id
   let infoObjectById = todosLosPersonajes.find(elemento => elemento.name == id)
   let contenedorpersonajes = document.getElementById("modalPopup");// creo las variables la ubicacion a remplazar
   let showBirthPlace = infoObjectById.origin.name;
@@ -76,93 +76,96 @@ function ejecutarBusqueda() {
 }
 
 //ejecutamos el filtro por planetas
-let btnDimensions=document.getElementById("seccionDimensiones");
+let btnDimensions = document.getElementById("seccionDimensiones");
 btnDimensions.addEventListener("click", listLocations);
 
 function listLocations() {
 
-  document.getElementById("personajes").style.display = "none";
-  document.getElementById("filtrarBusqueda").style.display ="none";
+  document.getElementById("containerBusqueda").style.display = "none";
+  // document.getElementById("filtrarBusqueda").style.display = "none";
 
   let planetas = [];
   // creamos un array con todos los planetas aca hay un array creado por cada planeta encontrado dentro de los objetos
   for (let i = 0; i < todosLosPersonajes.length; i++) {
     planetas.push(todosLosPersonajes[i].location.name);
-      }
-      console.log(planetas);
+  }
+  console.log("planetas");
+  console.log(planetas);
+  console.log(typeof planetas);
+
   let planetasDiferentes = [];
-  
+
   planetas.forEach(
     (item) => {
       if (planetasDiferentes.includes(item)) { //no hacer nada
       } else { planetasDiferentes.push(item) }
     })
+    console.log("planetasDiferentes");
   console.log(planetasDiferentes);
+  console.log(typeof planetasDiferentes);
   // console.log(planetasDiferentes[5]);
 
-  let mostrarPlanetas = planetasDiferentes.map(function(locaciones){
-  //  const botonesPlanetas= `<button value=${locaciones}>`+locaciones+`</button>`;
-  const contenedorPlanetas=document.getElementById("locations");
-  const nuevoplaneta= document.createElement("button");
-  nuevoplaneta.className= locaciones;
-  nuevoplaneta.innerHTML = locaciones;
-  nuevoplaneta.id = locaciones;
-  nuevoplaneta.addEventListener('click', showPlanets);
-  contenedorPlanetas.appendChild(nuevoplaneta);
- 
-   return nuevoplaneta;
-    
+  let mostrarPlanetas = planetasDiferentes.map(function (locaciones) {
+    //  const botonesPlanetas= `<button value=${locaciones}>`+locaciones+`</button>`;
+    const contenedorPlanetas = document.getElementById("locations");
+    const nuevoplaneta = document.createElement("button");
+    // nuevoplaneta.className= locaciones;
+    nuevoplaneta.innerHTML = locaciones;
+    nuevoplaneta.id = locaciones;
+    contenedorPlanetas.appendChild(nuevoplaneta);
+    nuevoplaneta.addEventListener('click', showPlanets);
+
+    return nuevoplaneta;
+
   })
+  console.log("mostrarPlanetas");
   console.log(mostrarPlanetas);
   console.log(typeof mostrarPlanetas);
   // document.getElementById("locations").innerHTML = mostrarPlanetas;
-   
+
 }
-//  //ejecutamos el filtro por status
-// document.getElementById("seccionEstatus").addEventListener("click", listStatus);
-// function listStatus() {
-//   document.getElementById("personajes").style.display = "none";
-//   let status = [];
-//   // creamos un array con todos los planetas
-//   for (let i = 0; i < todosLosPersonajes.length; i++) {
-//     status.push(todosLosPersonajes[i].status);
-//   }
-//   let estatusDiferentes = [];
-//   status.forEach(
-//     (item) => {
-//       if (estatusDiferentes.includes(item)) { //no hacer nada
-//       } else { estatusDiferentes.push(item) }
-//     })
-//   console.log(estatusDiferentes);
-//   let mostrarstatus = estatusDiferentes.map(function (status) {
-//     return '<button>' + status + '</button>'
-//   })
-//   document.getElementById("locations").innerHTML = mostrarstatus;
-// }
+ //ejecutamos el filtro por status
+document.getElementById("seccionEstatus").addEventListener("click", listStatus);
+function listStatus() {
+  document.getElementById("personajes").style.display = "none";
+  let status = [];
+  // creamos un array con todos los planetas
+  for (let i = 0; i < todosLosPersonajes.length; i++) {
+    status.push(todosLosPersonajes[i].status);
+  }
+  let estatusDiferentes = [];
+  status.forEach(
+    (item) => {
+      if (estatusDiferentes.includes(item)) { //no hacer nada
+      } else { estatusDiferentes.push(item) }
+    })
+  console.log(estatusDiferentes);
+  let mostrarstatus = estatusDiferentes.map(function (status) {
+    return '<button>' + status + '</button>'
+  })
+  document.getElementById("locations").innerHTML = mostrarstatus;
+}
+
 // document.getElementById("seccionPersonajes").addEventListener("click", listCharacters);
-// function listCharacters() {
-//   let placecharacters = document.getElementById("personajes");
- 
-//   placecharacters.style.display = "block";
-//   // document.getElementById("personajes").style.display = "block";
-// }
 
+function listCharacters() {
+  let placecharacters = document.getElementById("containerBusqueda");
 
-// const mostrarPlanetas = document.getElementsByClassName("classLocations");
-// for (let i = 0; i < mostrarPlanetas.length; i++) {
- 
-//   mostrarPlanetas[i].addEventListener("click", () => {
-//     console.log("se dio un click sobre el boton");
-//     var x = document.getElementsByTagName("button")[i].getAttribute("class");
-//     console.log(x); 
-//     // nuevoDiv.id = todosLosPersonajes[i].name;
-//     });
-//   // console.log(mostrarPlanetas[i]);
-// }
+  placecharacters.style.display = "block";
+  // document.getElementById("personajes").style.display = "block";
+ const placeLocations = document.getElementById("locations");
+ placeLocations.style.display = "none";
+}
 
-function showPlanets (event) {
+document.getElementById("seccionPersonajes").onclick=function(){
+  listCharacters();
+}
 
-   let planetValue = event.currentTarget.id;
-   console.log(planetValue);
+function showPlanets(event) {
+
+  let planetValue = event.currentTarget.id;
+  console.log(planetValue);
+  let resultados = filterItemsBybutton(todosLosPersonajes, planetValue);
+  showCards(resultados);
 }
 

@@ -5,7 +5,7 @@
     padding: 0;
     font-family: 'Do Hyeon', sans-serif;
     text-decoration: none;
-    list-style: none;
+    /* list-style: none; */
     
     
 }
@@ -222,7 +222,8 @@ nav #icon{
    
 } */
 
-@media (max-width: 1048px){
+/* tamaño muy grande  */
+@media (max-width: 700px){
     label .tittle{
      font-size: 32px ;
      padding-left:60px ;
@@ -333,3 +334,6 @@ nav #icon{
     width: 500px;
     max-width: 80%;
 }
+
+
+#containerBusqueda {display: none;}
