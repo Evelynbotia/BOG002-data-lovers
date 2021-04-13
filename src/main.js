@@ -12,7 +12,7 @@ $(document).ready(function () {
 
 import data from './data/rickandmorty/rickandmorty.js';
 
-// console.log(data.results);
+
 
 const todosLosPersonajes = data.results;
 console.log("todosLosPersonajes");
@@ -82,50 +82,60 @@ btnDimensions.addEventListener("click", listLocations);
 function listLocations() {
 
   document.getElementById("containerBusqueda").style.display = "none";
-  // document.getElementById("filtrarBusqueda").style.display = "none";
+  document.getElementById("personajes").style.display = "none";
+
 
   let planetas = [];
   // creamos un array con todos los planetas aca hay un array creado por cada planeta encontrado dentro de los objetos
   for (let i = 0; i < todosLosPersonajes.length; i++) {
     planetas.push(todosLosPersonajes[i].location.name);
   }
-  console.log("planetas");
-  console.log(planetas);
-  console.log(typeof planetas);
+  
 
   let planetasDiferentes = [];
+  
 
-  planetas.forEach(
-    (item) => {
+  planetas.forEach( (item) => {
       if (planetasDiferentes.includes(item)) { //no hacer nada
       } else { planetasDiferentes.push(item) }
     })
     console.log("planetasDiferentes");
   console.log(planetasDiferentes);
   console.log(typeof planetasDiferentes);
-  // console.log(planetasDiferentes[5]);
-
+  
+  
+  let contenedorPlanetas = document.getElementById("locations");
+  contenedorPlanetas.innerHTML = "";
+  
   let mostrarPlanetas = planetasDiferentes.map(function (locaciones) {
-    //  const botonesPlanetas= `<button value=${locaciones}>`+locaciones+`</button>`;
-    const contenedorPlanetas = document.getElementById("locations");
+   
     const nuevoplaneta = document.createElement("button");
-    // nuevoplaneta.className= locaciones;
+    
     nuevoplaneta.innerHTML = locaciones;
     nuevoplaneta.id = locaciones;
     contenedorPlanetas.appendChild(nuevoplaneta);
+    console.log(locaciones)
     nuevoplaneta.addEventListener('click', showPlanets);
 
     return nuevoplaneta;
 
+    
   })
-  console.log("mostrarPlanetas");
-  console.log(mostrarPlanetas);
-  console.log(typeof mostrarPlanetas);
-  // document.getElementById("locations").innerHTML = mostrarPlanetas;
+  
+    
+ 
+   let volverPlanetas = document.getElementById("locations").style.display = "";
+   console.log(volverPlanetas);
+  
+
+  const placeLocations = document.getElementById("locations");
+
+  placeLocations.style.display = "block";
 
 }
  //ejecutamos el filtro por status
 document.getElementById("seccionEstatus").addEventListener("click", listStatus);
+
 function listStatus() {
   document.getElementById("personajes").style.display = "none";
   let status = [];
@@ -146,19 +156,25 @@ function listStatus() {
   document.getElementById("locations").innerHTML = mostrarstatus;
 }
 
-// document.getElementById("seccionPersonajes").addEventListener("click", listCharacters);
+
 
 function listCharacters() {
+
   let placecharacters = document.getElementById("containerBusqueda");
 
   placecharacters.style.display = "block";
-  // document.getElementById("personajes").style.display = "block";
- const placeLocations = document.getElementById("locations");
- placeLocations.style.display = "none";
+  
+ 
 }
+ 
 
+// Boton Personajes
 document.getElementById("seccionPersonajes").onclick=function(){
+  const placeLocations = document.getElementById("locations");
+  placeLocations.style.display = "none";
   listCharacters();
+  ejecutarBusqueda();
+
 }
 
 function showPlanets(event) {
@@ -166,6 +182,8 @@ function showPlanets(event) {
   let planetValue = event.currentTarget.id;
   console.log(planetValue);
   let resultados = filterItemsBybutton(todosLosPersonajes, planetValue);
+  document.getElementById("personajes").style.display = "";
+
   showCards(resultados);
 }
 
