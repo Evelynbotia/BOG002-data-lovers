@@ -206,8 +206,8 @@ nav #icon{
     
 
 }
-/* Borrarlo si decidimos elimar el boton */
-/* nav .botonBuscar{
+
+ .botonBuscar{
    display: inline-block;
    background-color:#8ed6d8;
    color:rgb(211, 58, 178);
@@ -220,7 +220,7 @@ nav #icon{
    height: 40px;
    transform: translateX(-5%);
    
-} */
+} 
 
 /* tamaño muy grande  */
 @media (max-width: 700px){

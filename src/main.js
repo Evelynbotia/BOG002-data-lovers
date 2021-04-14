@@ -15,9 +15,9 @@ import data from './data/rickandmorty/rickandmorty.js';
 
 
 const todosLosPersonajes = data.results;
-console.log("todosLosPersonajes");
-console.log(todosLosPersonajes);
-console.log(typeof todosLosPersonajes);
+// console.log("todosLosPersonajes");
+// console.log(todosLosPersonajes);
+// console.log(typeof todosLosPersonajes);
 
 showCards(todosLosPersonajes);
 
@@ -56,7 +56,7 @@ function showEpisodes(event) {
 
   document.getElementById("modalPopup").style.display = "block";
   let id = event.currentTarget.id;
-  console.log(id); // me muestra el id
+  // console.log(id); // me muestra el id
   let infoObjectById = todosLosPersonajes.find(elemento => elemento.name == id)
   let contenedorpersonajes = document.getElementById("modalPopup");// creo las variables la ubicacion a remplazar
   let showBirthPlace = infoObjectById.origin.name;
@@ -99,9 +99,7 @@ function listLocations() {
       if (planetasDiferentes.includes(item)) { //no hacer nada
       } else { planetasDiferentes.push(item) }
     })
-    console.log("planetasDiferentes");
-  console.log(planetasDiferentes);
-  console.log(typeof planetasDiferentes);
+   
   
   
   let contenedorPlanetas = document.getElementById("locations");
@@ -114,7 +112,7 @@ function listLocations() {
     nuevoplaneta.innerHTML = locaciones;
     nuevoplaneta.id = locaciones;
     contenedorPlanetas.appendChild(nuevoplaneta);
-    console.log(locaciones)
+    // console.log(locaciones)
     nuevoplaneta.addEventListener('click', showPlanets);
 
     return nuevoplaneta;
@@ -125,36 +123,59 @@ function listLocations() {
     
  
    let volverPlanetas = document.getElementById("locations").style.display = "";
-   console.log(volverPlanetas);
+  //  console.log(volverPlanetas);
   
 
   const placeLocations = document.getElementById("locations");
-
   placeLocations.style.display = "block";
 
 }
- //ejecutamos el filtro por status
-document.getElementById("seccionEstatus").addEventListener("click", listStatus);
 
-function listStatus() {
-  document.getElementById("personajes").style.display = "none";
-  let status = [];
-  // creamos un array con todos los planetas
-  for (let i = 0; i < todosLosPersonajes.length; i++) {
-    status.push(todosLosPersonajes[i].status);
-  }
-  let estatusDiferentes = [];
-  status.forEach(
-    (item) => {
-      if (estatusDiferentes.includes(item)) { //no hacer nada
-      } else { estatusDiferentes.push(item) }
-    })
-  console.log(estatusDiferentes);
-  let mostrarstatus = estatusDiferentes.map(function (status) {
-    return '<button>' + status + '</button>'
-  })
-  document.getElementById("locations").innerHTML = mostrarstatus;
-}
+// boton status de los personajes
+
+// let btnStatus = document.getElementById("seccionEstatus");
+// btnStatus.addEventListener("click", listStatus);
+// function listStatus() {
+
+//   document.getElementById("containerBusqueda").style.display = "none";
+//   document.getElementById("personajes").style.display = "none";
+
+
+//   let status = [];
+//   // creamos un array con todos los planetas aca hay un array creado por cada planeta encontrado dentro de los objetos
+//   for (let i = 0; i < todosLosPersonajes.length; i++) {
+//     status.push(todosLosPersonajes[i].status);
+//   }
+  
+
+//   let statusDiferentes = [];
+  
+
+//   status.forEach( (status) => {
+//       if (statusDiferentes.includes(status)) { //no hacer nada
+//       } else { statusDiferentes.push(status) }
+//     })
+   
+  
+  
+//   let contenedorStatus = document.getElementById("statusPersonajes");
+//   contenedorStatus.innerHTML = "";
+  
+//   let mostrarStatus = statusDiferentes.map(function (status) {
+   
+//     const nuevoStatus = document.createElement("button");
+    
+//     nuevoStatus.innerHTML = status;
+//     nuevoStatus.id = status;
+//     contenedorStatus.appendChild(nuevoStatus);
+//     // console.log(locaciones)
+//     nuevoStatus.addEventListener('click', showStatus);
+
+//     return nuevoStatus;
+
+    
+//   })
+//} 
 
 
 
@@ -174,16 +195,68 @@ document.getElementById("seccionPersonajes").onclick=function(){
   placeLocations.style.display = "none";
   listCharacters();
   ejecutarBusqueda();
-
+  
 }
 
 function showPlanets(event) {
 
   let planetValue = event.currentTarget.id;
-  console.log(planetValue);
+  // console.log(planetValue);
   let resultados = filterItemsBybutton(todosLosPersonajes, planetValue);
   document.getElementById("personajes").style.display = "";
 
   showCards(resultados);
 }
 
+// function showStatus(event){
+//   let statusValue = event.currentTarget.id;
+//   // console.log(planetValue);
+//   let resultadoStatus = filterItemsBybutton(todosLosPersonajes, statusValue);
+//   document.getElementById("personajes").style.display = "";
+
+//   showCards(resultadoStatus);
+// }
+let botonOrdenarAscendente = document.getElementById("botonOrdenarZ-A");
+botonOrdenarAscendente.addEventListener("click", ejecutarOrdenAscendente);
+
+function ejecutarOrdenAscendente (){
+  document.getElementById("personajes").style.display = "";//preguntar que hace la cadena
+let personajesOrdenados = todosLosPersonajes.sort((a,b) =>{
+if(a.name.toLocaleLowerCase()<b.name.toLocaleLowerCase()) return 1;
+if(a.name.toLocaleLowerCase()>b.name.toLocaleLowerCase()) return -1;
+return 0;
+
+}
+) 
+console.log(personajesOrdenados);
+showCards(personajesOrdenados);
+
+}
+
+let botonOrdenarDescendente = document.getElementById("botonOrdenarA-Z");
+botonOrdenarDescendente.addEventListener("click", ejecutarOrdenDescendente);
+
+function ejecutarOrdenDescendente (){
+  document.getElementById("personajes").style.display = "";//preguntar que hace la cadena
+let personajesOrdenados = todosLosPersonajes.sort((a,b) =>{
+if(a.name.toLocaleLowerCase()<b.name.toLocaleLowerCase()) return -1;
+if(a.name.toLocaleLowerCase()>b.name.toLocaleLowerCase()) return 1;
+return 0;
+
+}
+) 
+console.log(personajesOrdenados);
+showCards(personajesOrdenados);
+
+}
+// personajesOrdenados.sort (a, b)  {
+//   if (a.name > b.name) { 
+//     return 1;
+//   } 
+//   if (a.name < b.name) {
+//     return -1;
+// } else {
+//   return 0;
+// }
+
+// }
