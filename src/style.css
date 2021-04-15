@@ -5,23 +5,103 @@
     padding: 0;
     font-family: 'Do Hyeon', sans-serif;
     text-decoration: none;
-    /* list-style: none; */
+   
     
     
 }
+
+header{
+    width: 100%;
+    max-width: 960px;
+    min-width: 300px;
+    margin: 0 auto;
+}
+img{
+    width: 100%;
+    height: auto;
+}
+
+header nav{
+    
+    margin-top: 0px;
+    max-width:1000px ;
+    margin: 2px auto; 
+    
+   
+}
+.menu_bar{
+    display: none;
+}
+header nav ul{
+overflow:hidden;
+list-style: none; 
+background: #8ed6d8;
+
+}
+
+header nav ul li{
+    float: left;
+   
+}
+header nav ul li a
+{
+    color: cadetblue;
+    text-shadow:2px 2px 2px  rgb(155, 240, 58);
+    display: block;
+    margin-left: 36px;
+    font-size: xx-large;
+
+    
+} header nav ul li a:hover{
+    background: #1af186;
+}
+
+.formulario-busqueda{
+    display:inline-flex;
+    border-radius: 20px;
+    height: 50px;
+    width: 400px;
+    margin-top: 30px;
+    background: rgb(193, 230, 30);
+    max-width: 800px;
+    /* min-width: 200px; */
+    
+
+}
+
+ .botonOrdenar{
+   display: inline-block;
+   background-color:#8ed6d8;
+   color:rgb(211, 58, 178);
+   border-radius: 30px; 
+   font-weight: 300;
+   font-family:'Do Hyeon', sans-serif;
+   font-size: 20px;
+   text-align:center;
+   width:80px;
+   height: 50px;
+   transform: translateX(-5%);
+   
+} 
+
+
 body {
+    background: url(IMG/fondo2.jpg); 
+   
     /* display:inline-flex; 
     justify-content: center; */
-    align-items: center; 
+
+    /*aqui funciona como antes
+    /* align-items: center; 
      width: 100%;
     height:calc (100vh - 80px); 
     font-family: 'Do Hyeon', sans-serif; 
      letter-spacing: 0.1em;
-    line-height: 1.0; 
-    background: url(IMG/fondo2.jpg); 
-   
+    line-height: 1.0;  */
+    
     
 }
+
 .container{
     position: relative;
     width: 1100px;
@@ -82,6 +162,7 @@ body {
     
     
 }
+
 .container .card:hover{
     height: 420px;
 }
@@ -118,38 +199,9 @@ body {
     transition-delay: 0.3s;
 }
 
- 
-Aquí inicia la tarjeta anterior :D
- 
-/* *{
- margin: 0;
- padding: 0;
- text-decoration: none;
- list-style: none;
- 
-}
 
- body{
-    width: 100%;
-    height:calc (100vh - 80px);
-    font-family: 'Do Hyeon', sans-serif;
-    letter-spacing: 0.3em;
-    line-height: 1.6;
-    background: url(IMG/fondo2.jpg); 
-    background-size: cover;
-} */
 
-label .tittle{
-
-    text-align: center;
-    font-size:45px;
-    margin-top: 100px;
-    font-weight: bold;
-    padding: 0 100px;
-    line-height: 50px;
-
-}
-
+/* 
 nav ul{
     float: right;
     margin-right: 40px;
@@ -186,44 +238,14 @@ nav #icon{
     cursor: pointer;
     display: none;
 
-}
-
-.wrapper{
-    width: 200%;
-    max-width: max-content; 
-    margin: auto;
-    overflow:hidden;
-   
-}
-
-.formulario-busqueda{
-    display:inline-flex;
-    border-radius: 20px;
-    height: 40px;
-    width: 500px;
-    margin-top: 150px;
-
-    
-
-}
-
- .botonBuscar{
-   display: inline-block;
-   background-color:#8ed6d8;
-   color:rgb(211, 58, 178);
-   border-radius: 30px; 
-   font-weight: 600;
-   font-family:'Do Hyeon', sans-serif;
-   font-size: 20px;
-   text-align:center;
-   width:70px;
-   height: 40px;
-   transform: translateX(-5%);
-   
 } 
 
+
+
+
+/*nav anterior boton hamburguesa
 /* tamaño muy grande  */
-@media (max-width: 700px){
+/* @media (max-width: 700px){
     label .tittle{
      font-size: 32px ;
      padding-left:60px ;
@@ -241,8 +263,8 @@ nav #icon{
         margin: 150px;  
     
     } 
-}
-
+} */
+/* 
 @media (max-width: 909px){
    nav #icon{
      display:block ;
@@ -275,7 +297,7 @@ nav #icon{
         left: 0;
     }
     
-} 
+}  */
 /* 
 .container{
     width: 100%;

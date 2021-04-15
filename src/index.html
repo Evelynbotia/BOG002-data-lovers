@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0" />
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css">
   <script src="main.js" type="module"></script>
@@ -17,34 +17,39 @@
 <body>
   <header>
     <label class="tittle">
-      <img src="IMG/logo_rick-removebg.png">
+      <img src="IMG/logo_rick-removebg.png"  >
     </label>
-
-  </header>
-  <div id="barraDeBusqueda">
-    <nav>
-      <ul>
-        <li><a id="seccionDimensiones" class="classDimensiones"> Dimensiones </a></li>
-        <li><a id="seccionPersonajes" class="classPersonajes"> Personajes </a></li>
-        <li><a id="seccionEstatus" class="classEstatus"> Estatus </a></li>
-        <li><a id="seccionEstadisticas" class="ClassEstadisticas"> Estadisticas</a></li>
-      </ul>
-      <label id="icon">
+    <div class="menu_bar">
+      <!-- <a href="#" class="bt-menu"><span class="icon-list2"></span></a>>Menu</a> -->
+       <label id="icon">
         <i class="fas fa-bars"></i>
       </label>
-      <div class="wrapper">
+    </div>
+      <nav>
+        
+          <ul>
+            <li><a id="seccionDimensiones" class="classDimensiones"> Dimensiones </a></li>
+            <li><a id="seccionPersonajes" class="classPersonajes"> Personajes </a></li>
+            <li><a id="seccionEstatus" class="classEstatus"> Estatus </a></li>
+            <li><a id="seccionEstadisticas" class="ClassEstadisticas"> Estadisticas</a></li>
+          </ul>
         <div class="containerBusqueda" id="containerBusqueda">
           <input type="text" id="filtrarBusqueda" placeholder="Escribe el nombre de tu personaje"
             class="formulario-busqueda">
-          <p id=listadodebusqueda></p>
-           <button class="botonOrdenar" id="botonOrdenarA-Z">Ordenar A-Z</button> 
-           <button class="botonOrdenar" id="botonOrdenarZ-A">Ordenar Z-A</button> 
-
+          <button class="botonOrdenar" id="botonOrdenarA-Z" >Ordenar A-Z</button>
+         
+          <button class="botonOrdenar" id="botonOrdenarZ-A">Ordenar Z-A</button>
         </div>
-      </div>
-    </nav>
-  </div>
-  </div>
+
+        
+       
+        <!-- <div class="wrapper"> -->
+        
+        <!-- </div> -->
+      </nav>
+    </div>
+    <!-- revisamos los div  -->
+  </header>
   <div class="container">
     <div class="classLocations" id="locations">
       <div id="imprimirLocations"></div>
@@ -79,7 +84,7 @@
 
   <!-- <div class="container" id="statusPersonajes">
     <div class="card" id="fichaStatus"> -->
-      <!-- <div class="imgBx">
+  <!-- <div class="imgBx">
         <img src="IMG/morty2.jpg">
       </div>
       <div class="content">
@@ -89,7 +94,7 @@
           Recusandae consequuntur nostrum nobis reiciendis voluptatibus, suscipit
           deserunt facilis quisquam nulla temporibus fugiat.
         </p> -->
-    <!-- </div>
+  <!-- </div>
   </div> -->
   <div class="popup" id="modalPopup">
     <button class="close-button">&times;</button>
