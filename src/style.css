@@ -1,15 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
-
 *{
     margin: 0;
     padding: 0;
     font-family: 'Do Hyeon', sans-serif;
     text-decoration: none;
-   
-    
-    
 }
-
 header{
     width: 100%;
     max-width: 960px;
@@ -20,14 +15,10 @@ img{
     width: 100%;
     height: auto;
 }
-
 header nav{
-    
     margin-top: 0px;
     max-width:1000px ;
     margin: 2px auto; 
-    
-   
 }
 .menu_bar{
     display: none;
@@ -35,13 +26,10 @@ header nav{
 header nav ul{
 overflow:hidden;
 list-style: none; 
-background: #8ed6d8;
-
+background: #8ED6D8;
 }
-
 header nav ul li{
     float: left;
-   
 }
 header nav ul li a
 {
@@ -50,11 +38,55 @@ header nav ul li a
     display: block;
     margin-left: 36px;
     font-size: xx-large;
-
-    
-} header nav ul li a:hover{
-    background: #1af186;
+    padding:20px;
+    text-decoration:none;
 }
+ header nav ul li a:hover{
+    background: #1AF186;
+}
+
+
+@media screen and (max-width:800px ) {
+	header nav {
+		width:80%;
+		height:100%;
+		left:-100%;
+		margin:0;
+		position: fixed;
+	}
+
+	header nav ul li {
+		display:block;
+		float:none;
+		border-bottom:1px solid rgba(255,255,255, .3);
+	}
+
+	.menu_bar {
+		display:block;
+		width:100%;
+		background:#ccc;
+	}
+
+	.menu_bar .bt-menu {
+		display:block;
+		padding:20px;
+		background:  #1AF186;
+		color:#fff;
+		text-decoration:none;
+		font-weight: bold;
+		font-size:25px;
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
+	}
+
+	.menu_bar span {
+		float:right;
+		font-size:40px;
+	}
+} 
+
+/* fin de la primera revision de header */
 
 .formulario-busqueda{
     display:inline-flex;
@@ -65,10 +97,7 @@ header nav ul li a
     background: rgb(193, 230, 30);
     max-width: 800px;
     /* min-width: 200px; */
-    
-
 }
-
  .botonOrdenar{
    display: inline-block;
    background-color:#8ed6d8;
@@ -81,59 +110,46 @@ header nav ul li a
    width:80px;
    height: 50px;
    transform: translateX(-5%);
-   
 } 
 
 
 body {
     background: url(IMG/fondo2.jpg); 
-   
-    /* display:inline-flex; 
-    justify-content: center; */
-
-    /*aqui funciona como antes
-    /* align-items: center; 
-     width: 100%;
-    height:calc (100vh - 80px); 
-    font-family: 'Do Hyeon', sans-serif; 
-     letter-spacing: 0.1em;
+    /* display:flexbox;   */
+    /* flex-wrap:wrap; */
+    /* justify-content: center;  */
+    /*aqui funciona como antes*/
+     /* align-items: center;  */
+     /* width: 100%; */
+    /* height:calc (100vh - 80px);  */
+    /* font-family: 'Do Hyeon', sans-serif;  */
+     /* letter-spacing: 0.1em;
     line-height: 1.0;  */
-    
-    
-}
 
+    /* asi esta en el video  */
+    /* display:flex;  
+    justify-content: center; 
+    align-items: center; 
+    background: url(IMG/fondo2.jpg); */
+
+
+}
+/* esta igual al video */
 .container{
     position: relative;
-    width: 1100px;
+    /* width: 2000px; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     padding: 30px;
-    
-    
 }
-.container .card img{
-    width: 330px;
-    height: 220px;
-}  
-
-.container .card h1{
-    font-weight: 300;
-    color: rgb(212, 63, 125);
-    font-size: 25px;
-} 
- .container .card h2{
-    padding: 0 1rem;
-    font-size: 20px;
-    font-weight: 300;
-    color: rgb(51, 145, 98);
-}  
 
 .container .card{
     position:relative;
     max-width: 300px;
-    height: 215px;
+    height: 190px;
+    /* 1:56 */
     background: url(IMG/fondo\ content.jpg);
     margin: 30px 10px;
     padding: 20px 15px ;
@@ -141,9 +157,8 @@ body {
     flex-direction: column;
     box-shadow: 0 5px 20px rgba(78, 229, 235, 0.5);
     transition: 0.3s ease-in-out;
+    /* 2:42 */
     text-align: center; 
-    
-   
     width: 280px;
     /* height: 280px; */
     /* border-radius: 8px;
@@ -157,12 +172,8 @@ body {
     font-family:'Do Hyeon', sans-serif;
     background: rgb(255, 255, 255); */
     /* background-size: cover; */
-   
     /* flex-wrap: wrap;  */
-    
-    
 }
-
 .container .card:hover{
     height: 420px;
 }
@@ -170,16 +181,17 @@ body {
     position: relative;
     width: 260px;
     height: 260px;
+    /* 2:10 */
     top: -60px;
     left: 20px;
+    /* 2:54 */
     z-index: 1;
     box-shadow: 0 5px 20px rgba(66, 241, 232, 0.2);
-   
+    /* 3:12 */
 }
 .container .card .imgBx img{
     max-width: 100%;
-    border-radius: 10px;
-  
+    border-radius: 4px;
 }
 .container .card .content{
     position: relative;
@@ -190,172 +202,35 @@ body {
     visibility: hidden;
     opacity: 0;
     transition: 0.3s ease-in-out;
-    
+    /* 3:39 */
 }
 .container .card:hover .content{
     visibility: visible;
     opacity: 1;
     margin-top: -40px;
     transition-delay: 0.3s;
+    /* 4:02 */
 }
 
-
-
-/* 
-nav ul{
-    float: right;
-    margin-right: 40px;
-}
-
-nav li{
-    display: inline-block;
-    margin: 0 8px;
-    line-height: 80px;
-}
-
-nav a{
-    color: cadetblue;
-    text-shadow:2px 2px 2px  rgb(155, 240, 58);
-    font-size: 18px;
-    text-transform: uppercase;
-    border: 1px solid transparent;
-    padding: 7px 10px ;
-    border-radius: 3px;
-}
-
-a.active,a:hover{
-    border:1px solid white;
-    transition: .5s;
-
-}
-
-nav #icon{
-    color: rgb(231, 38, 96);
-    font-size: 30px;
-    line-height: 80px;
-    float: right;
-    margin-right: 40px;
-    cursor: pointer;
-    display: none;
-
+.container .card img{
+    width: 330px;
+    height: 220px;
+}  
+.container .card h1{
+    font-weight: 300;
+    color: rgb(212, 63, 125);
+    font-size: 25px;
 } 
-
-
-
-
-/*nav anterior boton hamburguesa
-/* tamaño muy grande  */
-/* @media (max-width: 700px){
-    label .tittle{
-     font-size: 32px ;
-     padding-left:60px ;
-    }
-    nav ul{
-     margin-right: 20px;
-    }
-    nav a{
-     font-size: 17px;
-    }
-    .formulario-busqueda{
-      
-        height: 40px;
-        width: 500px;  
-        margin: 150px;  
-    
-    } 
-} */
-/* 
-@media (max-width: 909px){
-   nav #icon{
-     display:block ;
-     position:static;
-    }
-    nav ul{
-     position: fixed; 
-     width: 100% ;
-     height: 100vh;
-     background: #8ec429;
-     top: 80 px;
-     left: -100%;
-     text-align: center;
-     transition: all .5s;
-    }
-    nav li{
-     display: block;
-     margin: 50px 0;
-     line-height: 30px;
-    }
-    nav a{
-     font-size: 20px;
-    }
-    a.active,a:hover{
-      border: none;
-      color: #3498db;
-
-    } 
-    nav ul.show{
-        left: 0;
-    }
-    
-}  */
-/* 
-.container{
-    width: 100%;
-    max-width: 1200px;
-    height: 430px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin:auto;
+ .container .card h2{
+    padding: 0 1rem;
+    font-size: 20px;
+    font-weight: 300;
+    color: rgb(51, 145, 98);
 }  
- 
-.container .card{
-    width: 280px;
-    height: 280px;
-    border-radius: 8px;
-    box-shadow: 0 2px rgba(10, 10, 10, 0.2);
-    overflow: hidden;
-    margin: 60px;
-    font-size: 10px;
-    text-align: center;
-    transition: all 0.25s;
-    box-shadow: 4px 4px 4px rgb(32, 182, 174); 
-    font-family:'Do Hyeon', sans-serif;
-    background: rgb(255, 255, 255);
-    background-size: cover;
-   
-    flex-wrap: wrap;
-    
-}  
- 
-.container .card:hover{
-    transform: translateY(-15px);
-    box-shadow: 0 12px 16px rgba(166, 225, 230, 0.2); */
- 
- 
-/* .container .card a{
-    font-weight: 500;
-    text-decoration: none;
-    color: rgb(49, 36, 131);
-}     */
 
 
 
-/* prueba jess modal */
-#modalPopup { display: none;
-}
-.popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid black;
-    border-radius: 10px;
-    z-index: 10;
-    background-color: white;
-    width: 500px;
-    max-width: 80%;
-}
 
 
-#containerBusqueda {display: none;}
+
+

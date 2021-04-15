@@ -3,12 +3,35 @@ import { filterItems,filterItemsBybutton } from './data.js';
 //si tenemos mas funciones desde aqui las debemos escribri para importarlas
 
 //con estas funciones se acciona el nav 
-$(document).ready(function () {
-  $('#icon').click(function () {
-    $('ul').toggleClass('show')
-  });
+// $(document).ready(function () {
+//   $('#icon').click(function () {
+//     $('ul').toggleClass('show')
+//   });
 
-});
+// });
+$(document).ready(main);
+
+var contador = 1;
+
+function main(){
+	$('.menu_bar').click(function(){
+		// $('nav').toggle(); 
+
+		if(contador == 1){
+			$('nav').animate({
+				left: '0'
+			});
+			contador = 0;
+		} else {
+			contador = 1;
+			$('nav').animate({
+				left: '-100%'
+			});
+		}
+
+	});
+
+};
 
 import data from './data/rickandmorty/rickandmorty.js';
 
@@ -39,7 +62,7 @@ function showCards(resultadoPersonajes) {
     nuevoParrafo.innerHTML = "Species: " + resultadoPersonajes[i].species + " <br>Gender: " + resultadoPersonajes[i].gender + "<br>Status: " + resultadoPersonajes[i].status + "<br> Origin: " + resultadoPersonajes[i].origin.name + "<br> Type: " + resultadoPersonajes[i].type;
     //realizamos la estructura con el appendchild
     nuevoDivImg.appendChild(nuevaImagen);//sonre el nuevo elemento se va acrear  la imagen 
-    nuevoDivContent.appendChild(nuevoNombre);
+    nuevoDivImg.appendChild(nuevoNombre);
     nuevoDivContent.appendChild(nuevoParrafo);
     nuevoDiv.appendChild(nuevoDivImg);
     nuevoDiv.appendChild(nuevoDivContent);
