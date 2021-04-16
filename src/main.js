@@ -9,6 +9,15 @@ import { filterItems,filterItemsBybutton } from './data.js';
 //   });
 
 // });
+
+
+
+import data from './data/rickandmorty/rickandmorty.js';
+
+
+
+const todosLosPersonajes = data.results;
+
 $(document).ready(main);
 
 var contador = 1;
@@ -32,13 +41,7 @@ function main(){
 	});
 
 };
-
-import data from './data/rickandmorty/rickandmorty.js';
-
-
-
-const todosLosPersonajes = data.results;
-
+// document.getElementById("menu_bar").style.display="block";
 
 showCards(todosLosPersonajes);
 
