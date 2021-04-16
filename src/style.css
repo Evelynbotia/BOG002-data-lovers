@@ -19,7 +19,16 @@ header nav{
     margin-top: 0px;
     max-width:1000px ;
     margin: 2px auto; 
-}
+    
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; 
+  }
 .menu_bar{
     display: none;
 }
@@ -27,6 +36,8 @@ header nav ul{
 overflow:hidden;
 list-style: none; 
 background: #8ED6D8;
+
+
 }
 header nav ul li{
     float: left;
@@ -86,7 +97,6 @@ header nav ul li a
 	}
 } 
 
-/* fin de la primera revision de header */
 
 .formulario-busqueda{
     display:inline-flex;
@@ -96,7 +106,7 @@ header nav ul li a
     margin-top: 30px;
     background: rgb(193, 230, 30);
     max-width: 800px;
-    /* min-width: 200px; */
+    
 }
  .botonOrdenar{
    display: inline-block;
@@ -107,7 +117,6 @@ header nav ul li a
    font-family:'Do Hyeon', sans-serif;
    font-size: 20px;
    text-align:center;
-   width:80px;
    height: 50px;
    transform: translateX(-5%);
 } 
@@ -115,29 +124,13 @@ header nav ul li a
 
 body {
     background: url(IMG/fondo2.jpg); 
-    /* display:flexbox;   */
-    /* flex-wrap:wrap; */
-    /* justify-content: center;  */
-    /*aqui funciona como antes*/
-     /* align-items: center;  */
-     /* width: 100%; */
-    /* height:calc (100vh - 80px);  */
-    /* font-family: 'Do Hyeon', sans-serif;  */
-     /* letter-spacing: 0.1em;
-    line-height: 1.0;  */
-
-    /* asi esta en el video  */
-    /* display:flex;  
-    justify-content: center; 
-    align-items: center; 
-    background: url(IMG/fondo2.jpg); */
+   
 
 
 }
-/* esta igual al video */
+
 .container{
     position: relative;
-    /* width: 2000px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,7 +142,6 @@ body {
     position:relative;
     max-width: 300px;
     height: 190px;
-    /* 1:56 */
     background: url(IMG/fondo\ content.jpg);
     margin: 30px 10px;
     padding: 20px 15px ;
@@ -157,22 +149,10 @@ body {
     flex-direction: column;
     box-shadow: 0 5px 20px rgba(78, 229, 235, 0.5);
     transition: 0.3s ease-in-out;
-    /* 2:42 */
+
     text-align: center; 
     width: 280px;
-    /* height: 280px; */
-    /* border-radius: 8px;
-    box-shadow: 0 2px rgba(10, 10, 10, 0.2);
-    overflow: hidden; */
-    /* margin: 60px;
-    font-size: 10px;
-    text-align: center; 
-    transition: all 0.25s; */
-    /* box-shadow: 4px 4px 4px rgb(32, 182, 174); 
-    font-family:'Do Hyeon', sans-serif;
-    background: rgb(255, 255, 255); */
-    /* background-size: cover; */
-    /* flex-wrap: wrap;  */
+   
 }
 .container .card:hover{
     height: 420px;
@@ -181,17 +161,15 @@ body {
     position: relative;
     width: 260px;
     height: 260px;
-    /* 2:10 */
     top: -60px;
     left: 20px;
-    /* 2:54 */
-    z-index: 1;
+     z-index: 1;
     box-shadow: 0 5px 20px rgba(66, 241, 232, 0.2);
-    /* 3:12 */
+    
 }
 .container .card .imgBx img{
     max-width: 100%;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 .container .card .content{
     position: relative;
@@ -202,14 +180,14 @@ body {
     visibility: hidden;
     opacity: 0;
     transition: 0.3s ease-in-out;
-    /* 3:39 */
+   
 }
 .container .card:hover .content{
     visibility: visible;
     opacity: 1;
     margin-top: -40px;
     transition-delay: 0.3s;
-    /* 4:02 */
+   
 }
 
 .container .card img{
