@@ -1,5 +1,6 @@
 // import { loadOptions } from '@babel/core';
-import { filterItems,filterItemsBybutton } from './data.js';
+
+import { filterItems,filterItemsBybutton, groupBy } from './data.js';
 //si tenemos mas funciones desde aqui las debemos escribri para importarlas
 
 //con estas funciones se acciona el nav 
@@ -40,7 +41,7 @@ function main(){
 
 	});
 
-};
+}
 // document.getElementById("menu_bar").style.display="block";
 
 showCards(todosLosPersonajes);
@@ -122,9 +123,10 @@ function listLocations() {
   // creamos un array con todos los planetas aca hay un array creado por cada planeta encontrado dentro de los objetos
   for (let i = 0; i < todosLosPersonajes.length; i++) {
     planetas.push(todosLosPersonajes[i].location.name);
+   
   }
   
-
+  
   let planetasDiferentes = [];
   planetas.forEach( (item) => {
       if (planetasDiferentes.includes(item)) { //no hacer nada
@@ -144,13 +146,16 @@ function listLocations() {
 
     return nuevoplaneta;
   })
-
+  // console.log(mostrarPlanetas);
+ console.log(planetasDiferentes);
+ 
   let volverPlanetas = document.getElementById("locations").style.display = "";
   const placeLocations = document.getElementById("locations");
   placeLocations.style.display = "block";
 
+  
+console.log(volverPlanetas);
 }
-
 
 
 function listCharacters() {
@@ -214,3 +219,17 @@ console.log(personajesOrdenados);
 showCards(personajesOrdenados);
 
 }
+let seccionSpecies=document.getElementById("seccionSpecies");
+seccionSpecies.addEventListener("click",groupsByEspecies);
+
+function groupsByEspecies(){
+let data= todosLosPersonajes;
+let imprimirSpecies= document.getElementById("species");
+let groupSpecies = groupBy(data, "species" );
+imprimirSpecies.innerHTML= groupSpecies;
+console.log( groupSpecies);
+// console.log(Object.values(groupsByEspecies))
+
+}
+// let groupSpecies = groupBy(todosLosPersonajes, 'species');
+// console.log(groupSpecies );

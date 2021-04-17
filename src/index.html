@@ -8,8 +8,6 @@
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css">
-  <script src="main.js" type="module"></script>
-
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
   <!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
@@ -43,7 +41,7 @@
     <ul>
       <li><a id="seccionDimensiones" class="classDimensiones"> Dimensiones </a></li>
       <li><a id="seccionPersonajes" class="classPersonajes"> Personajes </a></li>
-      <li><a id="seccionEstatus" class="classEstatus"> Estatus </a></li>
+      <li><a id="seccionSpecies" class="classSpecies"> Especies </a></li>
       <li><a id="seccionEstadisticas" class="ClassEstadisticas"> Estadisticas</a></li>
     </ul>
 
@@ -53,6 +51,11 @@
       <div id="imprimirLocations"></div>
 
     </div>
+    <div class="container">
+      <div class="classSpecies" id="species">
+        <div id="imprimirSpecies"></div>
+  
+      </div>
   </div>
   <div class="container" id="personajes">
     <div class="card" id="fichaPersonajes">
@@ -60,6 +63,7 @@
     </div>
   </div>
 
+ 
   <!-- <div class="container" id="statusPersonajes">
     <div class="card" id="fichaStatus"> -->
   <!-- <div class="imgBx">
@@ -76,14 +80,18 @@
   </div> -->
   <!-- <div class="popup" id="modalPopup">
     <button class="close-button">&times;</button>
-  </div>
+  </div> -->
 
 
-  <div id="root"></div> -->
+  <div id="root"></div>
 
   <footer>
 
   </footer>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js" integrity="sha512-dnUg2JxjlVoXHVdSMWDYm2Y5xcIrJg1N+juOuRi0yLVkku/g26rwHwysJDAMwahaDfRpr1AxFz43ktuMPr/l1A==" crossorigin="anonymous"></script>
+  <script src="main.js" type="module"></script>
+  
 </body>
 
 </html>
