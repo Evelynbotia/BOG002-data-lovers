@@ -52,6 +52,7 @@ background: #d1d88e;
     font-size: xx-large;
     padding:20px;
     text-decoration:none;
+    
 }
   nav ul li a:hover{
     background: #1AF186;
@@ -200,7 +201,7 @@ body {
     color: rgb(212, 63, 125);
     font-size: 25px;
 } 
- .container .card h2{
+.container .card h2{
     padding: 0 1rem;
     font-size: 20px;
     font-weight: 300;
@@ -208,8 +209,34 @@ body {
 }  
 
 
+/* Diseño grafica circular */
+/* .d-none {
+    display: none;
+} */
+#graficoPersonajesPrincipales, #graficoGeneroPersonajes {
+    background: url(IMG/fondo1.jpg);
+    /* background-color: #fff; */
+    border-radius: 20px;
+    margin-bottom: 30px; 
+    padding: 50px; 
+}
 
 
-
-
+#viewStatistics {
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 38vw;
+  }
+  
+#viewStatistics h1 {
+    color: cadetblue;
+    text-shadow:2px 2px 2px  rgb(155, 240, 58);
+    text-align: center;
+    letter-spacing: 1px;
+    font-size:50px;
+    
+  }
+ 
+/* Diseño grafica de barras */
 

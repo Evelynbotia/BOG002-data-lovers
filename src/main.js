@@ -1,6 +1,6 @@
 // import { loadOptions } from '@babel/core';
 
-import { filterItems,filterItemsBybutton, groupBy } from './data.js';
+import { filterItems,filterItemsBybutton, groupBy, calcularPersonajesPrincipales,calcularGeneroPersonajes} from './data.js';
 //si tenemos mas funciones desde aqui las debemos escribri para importarlas
 
 //con estas funciones se acciona el nav 
@@ -233,3 +233,109 @@ console.log( groupSpecies);
 }
 // let groupSpecies = groupBy(todosLosPersonajes, 'species');
 // console.log(groupSpecies );
+
+
+//graficas------>
+// let clikEstadisticas= document.getElementById("seccionEstadisticas");
+// clikEstadisticas.addEventListener("onclick", calcularPersonajesPrincipales);
+
+
+
+// let personajesPrinci = document.getElementById("viewStatistics");
+// clikEstadisticas.innerHTML= personajesPrinci;
+
+
+//  document.getElementById("seccionEstadisticas").onclick=function(){
+//   const personajesPrinci = document.getElementById("viewStatistics");
+
+const resulEstadisticasPersonajesPrincipales = calcularPersonajesPrincipales(todosLosPersonajes);
+
+const ctxPersonajesPrincipales = document.getElementById('graficoPersonajesPrincipales').getContext('2d');
+let graficoPersonajesPrincipales = new Chart(ctxPersonajesPrincipales, {
+    type: 'polarArea',
+    data: {
+        labels: ['Rick', 'Morty', 'Summer', 'Beth', 'Jerry'],
+        datasets: [{
+            label: 'Personajes Principales',
+            data: resulEstadisticasPersonajesPrincipales,
+            backgroundColor: [
+                'rgba(178, 255, 89, 0.4)',
+                'rgba(29, 233, 182, 0.4)',
+                'rgba(118, 255, 3, 0.4)',
+                'rgba(255, 64, 129, 0.4)',
+                'rgba(175, 180, 43, 0.4)',
+                'rgba(255, 110, 64, 0.4)'
+            ],
+            borderColor: [
+              'rgba(178, 255, 89, 1)',
+              'rgba(29, 233, 182, 1)',
+              'rgba(118, 255, 3, 1)',
+              'rgba(255, 64, 129, 1)',
+              'rgba(175, 180, 43, 1)',
+              'rgba(255, 110, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        legend: {
+          labels: {
+            fontColor: 'white',
+          }
+        }
+    }
+});
+
+// grafica de barras
+
+const resulEstadisticasGenero = calcularGeneroPersonajes(todosLosPersonajes);
+
+const ctxGenero = document.getElementById('graficoGeneroPersonajes').getContext('2d');
+let graficoGenero = new Chart(ctxGenero, {
+    type: 'bar',
+    data: {
+        labels: ['Female', 'Male', 'Genderless', 'unknown'],
+        datasets: [{
+            label: 'Género',
+            data: resulEstadisticasGenero,
+            backgroundColor: [
+              'rgba(178, 255, 89, 0.4)',
+              'rgba(29, 233, 182, 0.4)',
+              'rgba(118, 255, 3, 0.4)',
+              'rgba(255, 64, 129, 0.4)',
+              'rgba(175, 180, 43, 0.4)',
+              'rgba(255, 110, 64, 0.4)'
+            ],
+            borderColor: [
+              'rgba(178, 255, 89, 1)',
+              'rgba(29, 233, 182, 1)',
+              'rgba(118, 255, 3, 1)',
+              'rgba(255, 64, 129, 1)',
+              'rgba(175, 180, 43, 1)',
+              'rgba(255, 110, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true,
+                      fontColor: 'white',
+                  }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontColor: 'white',
+                }
+              }],
+          },
+          legend: {
+            labels: {
+              fontColor: 'white',
+            }
+          }
+      }
+  });
+  
