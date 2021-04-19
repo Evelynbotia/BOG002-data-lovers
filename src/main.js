@@ -153,6 +153,7 @@ function listLocations() {
   const placeLocations = document.getElementById("locations");
   placeLocations.style.display = "block";
   document.getElementById("viewStatistics").style.display= "none";
+  document.getElementById("species").style.display= "none";
 
   
 console.log(volverPlanetas);
@@ -175,6 +176,7 @@ function seccionPersonajes(){
   document.getElementById("containerBusqueda").style.display = "block";
   document.getElementById("personajes").style.display = "";
   document.getElementById("locations").style.display ="none";
+  document.getElementById("species").style.display= "none";
   document.getElementById("viewStatistics").style.display= "none";
   
  
@@ -248,15 +250,6 @@ document.getElementById("viewStatistics").style.display= "none";
 
 
 //graficas------>
-
-
-
-// let personajesPrinci = document.getElementById("viewStatistics");
-// clikEstadisticas.innerHTML= personajesPrinci;
-
-
-//  document.getElementById("seccionEstadisticas").onclick=function(){
-//   const personajesPrinci = document.getElementById("viewStatistics");
 
 let clickMostrarEstadisticas= document.getElementById("seccionEstadisticas");
 clickMostrarEstadisticas.addEventListener("click", mostrarSeccionEstadisticas);

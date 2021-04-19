@@ -10,29 +10,22 @@ header{
     max-width: 960px;
     min-width: 300px;
     margin: 0 auto;
+    /* height: 200px; */
 }
 img{
     width: 100%;
     height: auto;
 }
-header nav{
-    margin-top: 0px;
-    max-width:1000px ;
-    margin: 2px auto; 
-    
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: rgb(156, 38, 160); /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; 
-  }
+nav{
+ 
+    z-index: 1; 
+   
+
+}
 .menu_bar{
     display: none;
 }
- nav ul{
+nav ul{
 overflow:hidden;
 list-style: none; 
 background: #d1d88e;
@@ -52,6 +45,7 @@ background: #d1d88e;
     font-size: xx-large;
     padding:20px;
     text-decoration:none;
+    cursor: pointer;
     
 }
   nav ul li a:hover{
@@ -98,21 +92,26 @@ background: #d1d88e;
 		font-size:40px;
 	}
 } 
-
-
+.containerBusqueda {
+ 
+  text-align:center;
+  /* background-color:blue; */
+ 
+} 
 .formulario-busqueda{
     display:inline-flex;
     border-radius: 20px;
     height: 50px;
-    width: 400px;
+    width: 70%;
     margin-top: 30px;
     background: rgb(193, 230, 30);
     max-width: 800px;
     
-}
- .botonOrdenar{
+    
+} 
+.botonOrdenar{
    display: inline-block;
-   background-color:#8ed6d8;
+   background:#8ed6d8;
    color:rgb(211, 58, 178);
    border-radius: 30px; 
    font-weight: 300;
@@ -121,10 +120,29 @@ background: #d1d88e;
    text-align:center;
    height: 50px;
    transform: translateX(-5%);
+   cursor: pointer;
+   
+   
 } 
+
 .classLocations{
-    background-color:#8ed6d8;
-    color:rgb(211, 58, 178);
+    
+    
+    color: #c93fa6;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: x-large;
+    font-family:'Do Hyeon', sans-serif;
+    font-weight: bold;
+    position: relative;
+    padding-left: 50px;
 }
 
 body {
@@ -168,7 +186,6 @@ body {
     height: 260px;
     top: -60px;
     left: 20px;
-    /* z-index: 1; */
     box-shadow: 0 5px 20px rgba(66, 241, 232, 0.2);
     
 }
@@ -212,7 +229,7 @@ body {
 }  
 
 
-/* Diseño grafica circular y barras */
+/* Diseño graficas */
 .d-none {
     display: none;
 }
