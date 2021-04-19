@@ -102,10 +102,10 @@ function ejecutarBusqueda() {
   let parametroBusqueda = busquedaInput.value;
   if (parametroBusqueda ===""){
     showCards(todosLosPersonajes);
-}else{
-  let resultados = filterItems(todosLosPersonajes, parametroBusqueda);
-  showCards(resultados);
-}
+  }else{
+   let resultados = filterItems(todosLosPersonajes, parametroBusqueda);
+   showCards(resultados);
+   }
   
 }
 
@@ -137,7 +137,7 @@ function listLocations() {
   let mostrarPlanetas = planetasDiferentes.map(function (locaciones) {
    
     const nuevoplaneta = document.createElement("button");
-    
+    nuevoplaneta.className ="classLocations";
     nuevoplaneta.innerHTML = locaciones;
     nuevoplaneta.id = locaciones;
     contenedorPlanetas.appendChild(nuevoplaneta);
@@ -152,34 +152,42 @@ function listLocations() {
   let volverPlanetas = document.getElementById("locations").style.display = "";
   const placeLocations = document.getElementById("locations");
   placeLocations.style.display = "block";
+  document.getElementById("viewStatistics").style.display= "none";
 
   
 console.log(volverPlanetas);
 }
 
 
-function listCharacters() {
-  let placecharacters = document.getElementById("containerBusqueda");
-  placecharacters.style.display = "block";
+// function listCharacters() {
+//   let placecharacters = document.getElementById("containerBusqueda");
+//   placecharacters.style.display = "block";
   
-}
+// }
  
 
 // Boton Personajes
-document.getElementById("seccionPersonajes").onclick=function(){
-  const placeLocations = document.getElementById("locations");
-  placeLocations.style.display = "none";
-  listCharacters();
+let clickSeccionPersonajes=document.getElementById("seccionPersonajes");
+clickSeccionPersonajes.addEventListener("click", seccionPersonajes);
+
+function seccionPersonajes(){
   showCards(todosLosPersonajes);
-  ejecutarBusqueda();
+  document.getElementById("containerBusqueda").style.display = "block";
+  document.getElementById("personajes").style.display = "";
+  document.getElementById("locations").style.display ="none";
+  document.getElementById("viewStatistics").style.display= "none";
+  
+ 
+}
+
 
   
-}
-//Mostrar 
+
+//Mostrar planetas
 function showPlanets(event) {
  
   let planetValue = event.currentTarget.id;
-  // console.log(planetValue);
+  console.log(planetValue);
   let resultados = filterItemsBybutton(todosLosPersonajes, planetValue);
   document.getElementById("personajes").style.display = ""; //preguntar cadena vacia
   showCards(resultados);
@@ -228,6 +236,10 @@ let imprimirSpecies= document.getElementById("species");
 let groupSpecies = groupBy(data, "species" );
 imprimirSpecies.innerHTML= groupSpecies;
 console.log( groupSpecies);
+document.getElementById("species").style.display= "block";
+document.getElementById("locations").style.display= "none";
+document.getElementById("personajes").style.display= "none";
+document.getElementById("viewStatistics").style.display= "none";
 // console.log(Object.values(groupsByEspecies))
 
 }
@@ -236,8 +248,6 @@ console.log( groupSpecies);
 
 
 //graficas------>
-// let clikEstadisticas= document.getElementById("seccionEstadisticas");
-// clikEstadisticas.addEventListener("onclick", calcularPersonajesPrincipales);
 
 
 
@@ -248,8 +258,18 @@ console.log( groupSpecies);
 //  document.getElementById("seccionEstadisticas").onclick=function(){
 //   const personajesPrinci = document.getElementById("viewStatistics");
 
-const resulEstadisticasPersonajesPrincipales = calcularPersonajesPrincipales(todosLosPersonajes);
+let clickMostrarEstadisticas= document.getElementById("seccionEstadisticas");
+clickMostrarEstadisticas.addEventListener("click", mostrarSeccionEstadisticas);
 
+
+function mostrarSeccionEstadisticas(){
+document.getElementById("viewStatistics").style.display= "block";
+document.getElementById("species").style.display= "none";
+document.getElementById("locations").style.display= "none";
+document.getElementById("personajes").style.display= "none";
+}
+
+const resulEstadisticasPersonajesPrincipales = calcularPersonajesPrincipales(todosLosPersonajes);
 const ctxPersonajesPrincipales = document.getElementById('graficoPersonajesPrincipales').getContext('2d');
 let graficoPersonajesPrincipales = new Chart(ctxPersonajesPrincipales, {
     type: 'polarArea',
@@ -289,7 +309,6 @@ let graficoPersonajesPrincipales = new Chart(ctxPersonajesPrincipales, {
 // grafica de barras
 
 const resulEstadisticasGenero = calcularGeneroPersonajes(todosLosPersonajes);
-
 const ctxGenero = document.getElementById('graficoGeneroPersonajes').getContext('2d');
 let graficoGenero = new Chart(ctxGenero, {
     type: 'bar',

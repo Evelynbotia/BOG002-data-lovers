@@ -122,7 +122,10 @@ background: #d1d88e;
    height: 50px;
    transform: translateX(-5%);
 } 
-
+.classLocations{
+    background-color:#8ed6d8;
+    color:rgb(211, 58, 178);
+}
 
 body {
     background: url(IMG/fondo2.jpg); 
@@ -209,10 +212,10 @@ body {
 }  
 
 
-/* Diseño grafica circular */
-/* .d-none {
+/* Diseño grafica circular y barras */
+.d-none {
     display: none;
-} */
+}
 #graficoPersonajesPrincipales, #graficoGeneroPersonajes {
     background: url(IMG/fondo1.jpg);
     /* background-color: #fff; */
@@ -238,5 +241,5 @@ body {
     
   }
  
-/* Diseño grafica de barras */
+
 

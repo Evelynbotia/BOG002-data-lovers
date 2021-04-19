@@ -81,7 +81,7 @@ export const calcularPersonajesPrincipales = (todosLosPersonajes) => {
 };
 
 
-
+//grafica barra
 export const calcularGeneroPersonajes = (todosLosPersonajes) => {
 	let female = 0;
 	let male = 0;
