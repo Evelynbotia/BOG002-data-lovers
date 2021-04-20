@@ -125,7 +125,7 @@ background: #d1d88e;
    
 } 
 
-.classLocations{
+.classLocations {
     
     
     color: #c93fa6;
@@ -144,6 +144,7 @@ background: #d1d88e;
     position: relative;
     padding-left: 50px;
 }
+
 
 body {
     background: url(IMG/fondo2.jpg); 
