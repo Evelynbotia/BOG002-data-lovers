@@ -3,15 +3,6 @@
 import { filterItems,filterItemsBybutton, groupBy,filterItemsBybuttonSpecies, calcularPersonajesPrincipales,calcularGeneroPersonajes} from './data.js';
 //si tenemos mas funciones desde aqui las debemos escribri para importarlas
 
-//con estas funciones se acciona el nav 
-// $(document).ready(function () {
-//   $('#icon').click(function () {
-//     $('ul').toggleClass('show')
-//   });
-
-// });
-
-
 
 import data from './data/rickandmorty/rickandmorty.js';
 
@@ -42,8 +33,8 @@ function main(){
 	});
 
 }
-// document.getElementById("menu_bar").style.display="block";
 
+//Creamos las tarjetas de los personajes
 showCards(todosLosPersonajes);
 
 function showCards(resultadoPersonajes) {
@@ -71,25 +62,10 @@ function showCards(resultadoPersonajes) {
     nuevoDiv.appendChild(nuevoDivImg);
     nuevoDiv.appendChild(nuevoDivContent);
     contenedorpersonajes.appendChild(nuevoDiv);//crear el div que contiene la imagen y que contiene el nombre copiando el formato de card
-    // esto es para mostrar los episodios en un popup
     nuevoDiv.id = todosLosPersonajes[i].name;
-    nuevoDiv.addEventListener('click', showEpisodes);
+  
     
   }
-}
-//esto es para mostrar los episodios en un popup
-function showEpisodes(event) {
-
-  document.getElementById("modalPopup").style.display = "block";
-  let id = event.currentTarget.id;
-  console.log(id); // me muestra el id
-  let infoObjectById = todosLosPersonajes.find(elemento => elemento.name == id)
-  let contenedorEpisodios = document.getElementById("modalPopup");// creo las variables la ubicacion a remplazar
-  let shownewEpisodes = infoObjectById.episode;
-  let newPepisodes= document.createElement("p");
-  newPepisodes.innerHTML = shownewEpisodes;
-  contenedorEpisodios.appendChild(newPepisodes);
-
 }
 
 
@@ -128,9 +104,9 @@ function listLocations() {
   
   
   let planetasDiferentes = [];
-  planetas.forEach( (item) => {
-      if (planetasDiferentes.includes(item)) { //no hacer nada
-      } else { planetasDiferentes.push(item) }
+  planetas.forEach( (planeta) => {
+      if (planetasDiferentes.includes(planeta)) { //no hacer nada
+      } else { planetasDiferentes.push(planeta) }
     })
   let contenedorPlanetas = document.getElementById("locations");
   contenedorPlanetas.innerHTML = "";
@@ -146,6 +122,8 @@ function listLocations() {
 
     return nuevoplaneta;
   })
+
+  
   // console.log(mostrarPlanetas);
  console.log(planetasDiferentes);
  
@@ -156,9 +134,20 @@ function listLocations() {
   document.getElementById("species").style.display= "none";
 
   
-console.log(volverPlanetas);
+ console.log(volverPlanetas);
 }
+  
 
+//Mostrar planetas
+function showPlanets(event) {
+ 
+  let planetValue = event.currentTarget.id;
+  console.log(planetValue);
+  let resultados = filterItemsBybutton(todosLosPersonajes, planetValue);
+  document.getElementById("personajes").style.display = ""; //preguntar cadena vacia
+  showCards(resultados);
+  
+}
 
 // function listCharacters() {
 //   let placecharacters = document.getElementById("containerBusqueda");
@@ -183,18 +172,7 @@ function seccionPersonajes(){
 }
 
 
-  
 
-//Mostrar planetas
-function showPlanets(event) {
- 
-  let planetValue = event.currentTarget.id;
-  console.log(planetValue);
-  let resultados = filterItemsBybutton(todosLosPersonajes, planetValue);
-  document.getElementById("personajes").style.display = ""; //preguntar cadena vacia
-  showCards(resultados);
-  
-}
 
 let botonOrdenarAscendente = document.getElementById("botonOrdenarZ-A");
 botonOrdenarAscendente.addEventListener("click", ejecutarOrdenAscendente);
@@ -229,20 +207,21 @@ console.log(personajesOrdenados);
 showCards(personajesOrdenados);
 
 }
-// let seccionSpecies=document.getElementById("seccionSpecies");
-// seccionSpecies.addEventListener("click",groupsByEspecies);
+let seccionSpecies=document.getElementById("seccionSpecies");
+seccionSpecies.addEventListener("click",groupsByEspecies);
 
-// function groupsByEspecies(){
-// let data= todosLosPersonajes;
-// let imprimirSpecies= document.getElementById("species");
-// let groupSpecies = groupBy(data, "species" );
-// imprimirSpecies.innerHTML= groupSpecies;
-// console.log( groupSpecies);
-// document.getElementById("species").style.display= "block";
-// document.getElementById("locations").style.display= "none";
-// document.getElementById("personajes").style.display= "none";
-// document.getElementById("viewStatistics").style.display= "none";
-// // console.log(Object.values(groupsByEspecies))
+function groupsByEspecies(){
+let data= todosLosPersonajes;
+let imprimirSpecies= document.getElementById("species");
+let groupSpecies = groupBy(data, "species" );
+imprimirSpecies.innerHTML= groupSpecies;
+console.log( groupSpecies);
+document.getElementById("species").style.display= "block";
+document.getElementById("locations").style.display= "none";
+document.getElementById("personajes").style.display= "none";
+document.getElementById("viewStatistics").style.display= "none";
+}
+// console.log(Object.values(groupsByEspecies))
 
 // }
 // let groupSpecies = groupBy(todosLosPersonajes, 'species');
