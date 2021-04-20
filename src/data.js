@@ -45,6 +45,18 @@ export const filterItems = function(personajes, query){//funcion de expresion
     return personajes.filter(condicionDeFiltrado);
   }
 
+  export const filterItemsBybuttonSpecies = function(personajes, query){//funcion de expresion 
+
+    function condicionDeFiltradoSpecies(personajeObjeto) {
+      const nombreSpecie= personajeObjeto.species.toLowerCase();
+      const coincidencia = query.toLowerCase(); // query me permite buscar en cualquier parte del objeto la coincidencia 
+      const indiceCalculado = nombreSpecie.indexOf(coincidencia);// cuenta la ocurrencia de coincidencia sobre nombre personajes como es suseptible a mayusculas por eso hicimos el tolower case 
+      // console.log(indiceCalculado);
+  
+      return indiceCalculado > -1;// lo hacemos mayor a -1 para que nos muestre coincidencias, index of al no encontrar muestra -1
+    }
+    return personajes.filter(condicionDeFiltradoSpecies);
+  }
 
   export const  groupBy=function(objectArray, property) {
    return objectArray.reduce(function (acumulador, object) {
@@ -58,9 +70,6 @@ export const filterItems = function(personajes, query){//funcion de expresion
        {})
       
     }
-
-
-
 
 // graficas
 

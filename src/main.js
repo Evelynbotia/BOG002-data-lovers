@@ -1,6 +1,6 @@
 // import { loadOptions } from '@babel/core';
 
-import { filterItems,filterItemsBybutton, groupBy, calcularPersonajesPrincipales,calcularGeneroPersonajes} from './data.js';
+import { filterItems,filterItemsBybutton, groupBy,filterItemsBybuttonSpecies, calcularPersonajesPrincipales,calcularGeneroPersonajes} from './data.js';
 //si tenemos mas funciones desde aqui las debemos escribri para importarlas
 
 //con estas funciones se acciona el nav 
@@ -229,25 +229,76 @@ console.log(personajesOrdenados);
 showCards(personajesOrdenados);
 
 }
-let seccionSpecies=document.getElementById("seccionSpecies");
-seccionSpecies.addEventListener("click",groupsByEspecies);
+// let seccionSpecies=document.getElementById("seccionSpecies");
+// seccionSpecies.addEventListener("click",groupsByEspecies);
 
-function groupsByEspecies(){
-let data= todosLosPersonajes;
-let imprimirSpecies= document.getElementById("species");
-let groupSpecies = groupBy(data, "species" );
-imprimirSpecies.innerHTML= groupSpecies;
-console.log( groupSpecies);
-document.getElementById("species").style.display= "block";
-document.getElementById("locations").style.display= "none";
-document.getElementById("personajes").style.display= "none";
-document.getElementById("viewStatistics").style.display= "none";
-// console.log(Object.values(groupsByEspecies))
+// function groupsByEspecies(){
+// let data= todosLosPersonajes;
+// let imprimirSpecies= document.getElementById("species");
+// let groupSpecies = groupBy(data, "species" );
+// imprimirSpecies.innerHTML= groupSpecies;
+// console.log( groupSpecies);
+// document.getElementById("species").style.display= "block";
+// document.getElementById("locations").style.display= "none";
+// document.getElementById("personajes").style.display= "none";
+// document.getElementById("viewStatistics").style.display= "none";
+// // console.log(Object.values(groupsByEspecies))
 
-}
+// }
 // let groupSpecies = groupBy(todosLosPersonajes, 'species');
 // console.log(groupSpecies );
 
+// let personajes = todosLosPersonajes;
+// let especiesAgrupadas =personajes.reduce(function(acc, personaje){
+//   let llave = personaje['especie']
+//   if(!acc[llave]){
+//     acc[llave]=[]
+//   }
+//   acc[llave].push(personaje)
+//   return acc
+// }, [])
+// console.log('especies agrupadas--->' , especiesAgrupadas);
+// console.log('lista de especies---->' , Object.keys(especiesAgrupadas));
+
+ let btnSpecies = document.getElementById("seccionSpecies");
+ btnSpecies.addEventListener("click", listaSpecies);
+ function listaSpecies() {
+  document.getElementById("containerBusqueda").style.display = "none";
+  document.getElementById("personajes").style.display = "none";
+  let especies = [];// creamos un array con todos los planetas aca hay un array creado por cada planeta encontrado dentro de los objetos
+  for (let i = 0; i < todosLosPersonajes.length; i++) {
+    especies.push(todosLosPersonajes[i].species);
+  }
+  let speciesDiferentes= [];
+  especies.forEach( (species) => {
+    if (speciesDiferentes.includes(species)) { //no hacer nada
+    } else { speciesDiferentes.push(species) }
+  })
+  let contenedorSpecies = document.getElementById("species");
+  contenedorSpecies.innerHTML = "";
+  let mostrarSpecies = speciesDiferentes.map(function (species) {
+    const nuevoSpecie = document.createElement("button");
+    nuevoSpecie.className ="classLocations";
+    nuevoSpecie.innerHTML = species;
+    nuevoSpecie.id = species;
+    contenedorSpecies.appendChild(nuevoSpecie);
+    nuevoSpecie.addEventListener('click', verSpecie);
+    return nuevoSpecie;
+  })
+  let volverSpecie = document.getElementById("species").style.display = "";
+  const speciesPersonaje = document.getElementById("species");
+  speciesPersonaje.style.display = "block";
+  document.getElementById("viewStatistics").style.display= "none";
+  document.getElementById("locations").style.display= "none";
+  console.log(volverSpecie);
+}
+function verSpecie(event) {
+  let specieValue = event.currentTarget.id;
+  console.log(specieValue);
+  let resultadoSpecies = filterItemsBybuttonSpecies(todosLosPersonajes, specieValue);
+  document.getElementById("personajes").style.display = ""; //preguntar cadena vacia
+  showCards(resultadoSpecies);
+}
 
 //graficas------>
 
