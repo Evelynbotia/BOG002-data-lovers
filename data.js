@@ -58,18 +58,18 @@ export const filterItems = function(personajes, query){//funcion de expresion
     return personajes.filter(condicionDeFiltradoSpecies);
   }
 
-  export const  groupBy=function(objectArray, property) {
-   return objectArray.reduce(function (acumulador, object) {
-        let key = object[property]
-        if (!acumulador[key]) {
-          acumulador[key] = []
-        }
-        acumulador[key].push(object)
-        return acumulador
-      },
-       {})
+  // export const  groupBy=function(objectArray, property) {
+  //  return objectArray.reduce(function (acumulador, object) {
+  //       let key = object[property]
+  //       if (!acumulador[key]) {
+  //         acumulador[key] = []
+  //       }
+  //       acumulador[key].push(object)
+  //       return acumulador
+  //     },
+  //      {})
       
-    }
+  //   }
 
 // graficas
 
