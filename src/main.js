@@ -74,9 +74,33 @@ function ejecutarBusqueda() {
     let resultados = filterItems(todosLosPersonajes, parametroBusqueda);
     showCards(resultados);
     console.log(resultados);
+    console.log(resultados.length);
   }
 }
 
+
+ //Funcionalidad ordenado AZ
+
+ let botonOrdenarAscendente = document.getElementById("botonOrdenarA-Z");
+ botonOrdenarAscendente.addEventListener("click", ejecutarOrdenDescendente);
+ document.getElementById("personajes").style.display = "";
+ function ejecutarOrdenDescendente() {
+   let personajesOrdenadosDes = OrdenarAscendente(todosLosPersonajes);
+   showCards(personajesOrdenadosDes);
+   console.log(personajesOrdenadosDes);
+ 
+ 
+   //Funcionalidad ordenado ZA
+ 
+ }
+ let botonOrdenarDescendente = document.getElementById("botonOrdenarZ-A");
+ botonOrdenarDescendente.addEventListener("click", ejecutarOrdenAscendente);
+ document.getElementById("personajes").style.display = "";//preguntar que hace la cadena
+ function ejecutarOrdenAscendente() {
+   let personajesOrdenados = OrdenarDescendente(todosLosPersonajes);
+   showCards(personajesOrdenados);
+   
+ }
 
 //ejecutamos el filtro por planetas
 let btnDimensions = document.getElementById("seccionDimensiones");
@@ -116,33 +140,19 @@ function listLocations() {
   console.log(volverPlanetas);
 }
 
+//Mostrar planetas
+function showPlanets(event) {
+  let planetValue = event.currentTarget.id;
+  console.log(planetValue);
+  let resultados = filterItemsBybutton(todosLosPersonajes, planetValue);
+  document.getElementById("personajes").style.display = ""; //preguntar cadena vacia
+  showCards(resultados);
+}
 
- //Funcionalidad ordenado AZ
+//ejecutamos el filtro por especies
 
- let botonOrdenarAscendente = document.getElementById("botonOrdenarA-Z");
- botonOrdenarAscendente.addEventListener("click", ejecutarOrdenDescendente);
- document.getElementById("personajes").style.display = "";
- function ejecutarOrdenDescendente() {
-   let personajesOrdenadosDes = OrdenarAscendente(todosLosPersonajes);
-   showCards(personajesOrdenadosDes);
-   console.log(personajesOrdenadosDes);
- 
- 
-   //Funcionalidad ordenado ZA
- 
- }
- let botonOrdenarDescendente = document.getElementById("botonOrdenarZ-A");
- botonOrdenarDescendente.addEventListener("click", ejecutarOrdenAscendente);
- document.getElementById("personajes").style.display = "";//preguntar que hace la cadena
- function ejecutarOrdenAscendente() {
-   let personajesOrdenados = OrdenarDescendente(todosLosPersonajes);
-   showCards(personajesOrdenados);
- 
- 
-   //Crear Elementos de Especies
- 
- }
- let seccionSpecies=document.getElementById("seccionSpecies");
+
+let seccionSpecies=document.getElementById("seccionSpecies");
 seccionSpecies.addEventListener("click",groupsByEspecies);
 function groupsByEspecies(){
 let data= todosLosPersonajes;
@@ -156,20 +166,7 @@ document.getElementById("personajes").style.display= "none";
 document.getElementById("viewStatistics").style.display= "none";
 console.log(Object.values(groupsByEspecies))
 }
-// let groupSpecies = groupBy(todosLosPersonajes, 'species');
-// console.log(groupSpecies );
-// let personajes = todosLosPersonajes;
-// let especiesAgrupadas =personajes.reduce(function(acc, personaje){
-//   let llave = personaje['especie']
-//   if(!acc[llave]){
-//     acc[llave]=[]
-//   }
-//   acc[llave].push(personaje)
-//   return acc
-// }, [])
-// console.log('especies agrupadas--->' , especiesAgrupadas);
-// console.log('lista de especies---->' , Object.keys(especiesAgrupadas));
-// Creamos la sección especies ------>
+
 let btnSpecies = document.getElementById("seccionSpecies");
 btnSpecies.addEventListener("click", listaSpecies);
 function listaSpecies() {
@@ -212,8 +209,6 @@ function verSpecie(event) {
 }
  
 
-
-
 //Funcionalidad boton seccion perposanjes
 
 let clickSeccionPersonajes = document.getElementById("seccionPersonajes");
@@ -226,17 +221,6 @@ function seccionPersonajes() {
   document.getElementById("species").style.display = "none";
   document.getElementById("viewStatistics").style.display = "none";
 }
-
-
-//Mostrar planetas
-function showPlanets(event) {
-  let planetValue = event.currentTarget.id;
-  console.log(planetValue);
-  let resultados = filterItemsBybutton(todosLosPersonajes, planetValue);
-  document.getElementById("personajes").style.display = ""; //preguntar cadena vacia
-  showCards(resultados);
-}
-
 
 //Seccion Estadisticas
 

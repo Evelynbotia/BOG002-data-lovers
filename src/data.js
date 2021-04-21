@@ -1,18 +1,6 @@
-// estas funciones son de ejemplo
-// export const example = () => {
-//   return 'example';
-// };
-//las podemos usar para las barras de busqueda
-// export const getDimensions = (data) => data.map(location => location.dimension);
-// export const filterName = (data) => {
-//   const results = data.map(character => character.name);
-//   // console.log(results)
-//   return results;
-// }
-// export const getDimensions = (data) => data.map(location => location.name);
 
 export const filterItems = function(personajes, query){//funcion de expresion 
-  function condicionDeFiltrado(personajeObjeto) {
+  const condicionDeFiltrado= (personajeObjeto) => {
     const nombrepersonaje = personajeObjeto.name.toLowerCase();
     const coincidencia = query.toLowerCase(); // query me permite buscar en cualquier parte del objeto la coincidencia 
     const indiceCalculado = nombrepersonaje.indexOf(coincidencia);// cuenta la ocurrencia de coincidencia sobre nombre personajes como es suseptible a mayusculas por eso hicimos el tolower case 
@@ -22,6 +10,14 @@ export const filterItems = function(personajes, query){//funcion de expresion
   let personajesfiltrados = personajes.filter(condicionDeFiltrado);
   return personajesfiltrados;
 }
+
+// function condicionDelFiltrado(personajesObjecto){
+// }
+// const condicionDelFiltrado = (personajesObjecto) => {
+// }
+// const condicionDelFiltrado = function (personajesObjecto){
+// }
+
 
 export const filterItemsBybutton = function(personajes, query){//funcion de expresion 
   function condicionDeFiltrado(personajeObjeto) {
@@ -46,10 +42,6 @@ export const filterItemsBybuttonSpecies = function(personajes, query){//funcion 
 }
 
 
-
-
-
-
 export const OrdenarDescendente = function (objectPersonajes){
     let personajesOrdenadosDes = objectPersonajes.sort((a,b) =>{
   if(a.name.toLocaleLowerCase()<b.name.toLocaleLowerCase()) return 1;
@@ -68,16 +60,7 @@ export const  OrdenarAscendente = function (objectPersonajes){
 return personajesOrdenados;
 }
 
-//   export const  groupBy=function(objectPersonajes) {
-//   var contarHumanos = objectPersonajes.reduce(function (contador, objectPersonajes) {
-// if (objectPersonajes.species === "species"){
-//  return contador +1;
-//  }else{
-//      return contador
-//  }
-//     },0)// si no funciona ponemos el patentesis cerrando el otro corchete
-// return contarHumanos
-// }
+
 // export const  groupBy=function(objectArray, property) {
 //  const listadoSpecies = objectArray.reduce(function (acumulador, object) {
 //       let key = object[property]

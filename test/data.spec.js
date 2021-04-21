@@ -1,28 +1,44 @@
-import { filterItems,filterItemsBybutton,OrdenarAscendente,OrdenarDescendente} from '../src/data.js';
+import { filterItems,filterItemsBybutton,filterItemsBybuttonSpecies,OrdenarAscendente,OrdenarDescendente} from '../src/data.js';
 import dataObject from '../src/data/rickandmorty/rickandmorty.js';
+
 
 const ObjectPrueba = [{"name": "Morty Smith","status": "Alive",},{ "name": "Little Dipper","status": "Alive",},{ "name": "Pencilvester","status": "Dead",},{ "name": "Quantum Rick",
 "status": "unknown",},{ "name": "Rick D716-C","status": "Alive",},{  "name": "Rick Sanchez","status": "Dead",},]
+
 const ObjectOrdenadoAsc = [{ "name": "Little Dipper","status": "Alive",},{"name": "Morty Smith","status": "Alive",},{ "name": "Pencilvester","status": "Dead",},
 { "name": "Quantum Rick","status": "unknown",},{ "name": "Rick D716-C","status": "Alive",},{  "name": "Rick Sanchez","status": "Dead",},]
+
 const ObjectOrdenadoDesc = [{  "name": "Rick Sanchez","status": "Dead",},{ "name": "Rick D716-C","status": "Alive",},{ "name": "Quantum Rick","status": "unknown",},
 { "name": "Pencilvester","status": "Dead",},{"name": "Morty Smith","status": "Alive",},{ "name": "Little Dipper","status": "Alive",},]
+
 describe('Prueba que  filterItems es una funcion', () => {
-  it('is a function', () => {
+   it('is a function', () => {
     expect(typeof filterItems).toBe('function');
   });
 it('cuando busquemos rick nos retorne un array con 73 ', () => {
-  expect((filterItems(dataObject,"rick").toHaveLength(73)));
+  // console.log(dataObject);
+  expect(filterItems(dataObject.results,"rick")).toHaveLength(73);
+  });
 });
-});
+
 describe('Prueba que  filterItemsBybutton es una funcion', () => {
   it('is a function', () => {
     expect(typeof filterItemsBybutton).toBe('function');
   });
   it('cuando busquemos pluto nos retorne 6 personajes ', () => {
-  expect((filterItemsBybutton (dataObject,"pluto").toHaveLength(6)));
+  expect(filterItemsBybutton(dataObject.results,"pluto")).toHaveLength(6);
   });
 });
+
+describe('Prueba que  filterItemsBybuttonSpecies es una funcion', () => {
+  it('is a function', () => {
+    expect(typeof filterItemsBybuttonSpecies).toBe('function');
+  });
+  it('cuando busquemos human nos retorne 244 personajes ', () => {
+  expect(filterItemsBybuttonSpecies(dataObject.results,"Human")).toHaveLength(244);
+  });
+});
+
   describe('Prueba que OrdenarAscendente es una funcion', () => {
     it('is a function', () => {
       expect(typeof OrdenarAscendente).toBe('function');
