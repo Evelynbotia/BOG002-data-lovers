@@ -22,6 +22,7 @@ export const filterItems = function(personajes, query){//funcion de expresion
   let personajesfiltrados = personajes.filter(condicionDeFiltrado);
   return personajesfiltrados;
 }
+
 export const filterItemsBybutton = function(personajes, query){//funcion de expresion 
   function condicionDeFiltrado(personajeObjeto) {
     const nombrepersonaje = personajeObjeto.location.name.toLowerCase();
@@ -32,6 +33,23 @@ export const filterItemsBybutton = function(personajes, query){//funcion de expr
         }
       return personajes.filter(condicionDeFiltrado);
 }
+
+export const filterItemsBybuttonSpecies = function(personajes, query){//funcion de expresion 
+  function condicionDeFiltradoSpecies(personajeObjeto) {
+    const nombreSpecies = personajeObjeto.species.toLowerCase();
+    const coincidencia = query.toLowerCase(); // query me permite buscar en cualquier parte del objeto la coincidencia 
+    const indiceCalculado = nombreSpecies.indexOf(coincidencia);// cuenta la ocurrencia de coincidencia sobre nombre personajes como es suseptible a mayusculas por eso hicimos el tolower case 
+    // console.log(indiceCalculado);
+    return indiceCalculado > -1;// lo hacemos mayor a -1 para que nos muestre coincidencias, index of al no encontrar muestra -1
+  }
+  return personajes.filter(condicionDeFiltradoSpecies);      
+}
+
+
+
+
+
+
 export const OrdenarDescendente = function (objectPersonajes){
     let personajesOrdenadosDes = objectPersonajes.sort((a,b) =>{
   if(a.name.toLocaleLowerCase()<b.name.toLocaleLowerCase()) return 1;
@@ -49,6 +67,7 @@ export const  OrdenarAscendente = function (objectPersonajes){
 ) 
 return personajesOrdenados;
 }
+
 //   export const  groupBy=function(objectPersonajes) {
 //   var contarHumanos = objectPersonajes.reduce(function (contador, objectPersonajes) {
 // if (objectPersonajes.species === "species"){
@@ -70,6 +89,7 @@ return personajesOrdenados;
 //     },{})
 //     return [listadoSpecies] 
 //   }
+
 export const groupBy= (todosLosPersonajes) => {
   let alien = 0;
   let animal = 0;
@@ -95,8 +115,10 @@ export const groupBy= (todosLosPersonajes) => {
   robot = todosLosPersonajes.filter((character) => character.species.includes('Robot')).length;
   vampire = todosLosPersonajes.filter((character) => character.species.includes('Vampire')).length;
   unknown = todosLosPersonajes.filter((character) => character.species.includes('Munknown')).length;
+
   return [alien, animal, cronenberg,disease,human,humanoid,mytholog,parasite,poopybutthole,robot,vampire,unknown];
 };
+
 // graficas
 export const calcularPersonajesPrincipales = (todosLosPersonajes) => {
   let rick = 0;
